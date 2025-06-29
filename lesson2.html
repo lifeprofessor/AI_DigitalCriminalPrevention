@@ -1,0 +1,2469 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>레슨 2: 딥페이크 식별과 대응 - AI 시대 디지털 범죄 예방 교육</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="lesson2-styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- 헤더 -->
+    <header class="header">
+        <div class="container">
+            <h1 class="logo">
+                <a href="index.html" style="color: inherit; text-decoration: none;">
+                    <i class="fas fa-shield-alt"></i>
+                    AI 시대 디지털 범죄 예방 교육
+                </a>
+            </h1>
+            <nav class="nav">
+                <a href="index.html" class="nav-link">홈</a>
+                <a href="lesson1.html" class="nav-link">레슨 1</a>
+                <a href="lesson2.html" class="nav-link active">레슨 2</a>
+                <a href="lesson3.html" class="nav-link">레슨 3</a>
+                <a href="lesson4.html" class="nav-link">레슨 4</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- 메인 콘텐츠 -->
+    <main>
+        <!-- 레슨 헤더 -->
+        <section class="lesson-header">
+            <div class="container">
+                <div class="lesson-breadcrumb">
+                    <span>레슨 2 / 4</span>
+                </div>
+                <h1 class="lesson-title">딥페이크 식별과 대응</h1>
+                <p class="lesson-subtitle">딥페이크의 원리를 이해하고 진짜와 가짜를 구별하는 방법을 익힙니다.</p>
+                <div class="lesson-meta">
+                    <span><i class="fas fa-clock"></i> 예상 소요 시간: 30분</span>
+                    <span><i class="fas fa-brain"></i> 난이도: 중급</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- 학습 목표 -->
+        <section class="section">
+            <div class="container">
+                <h2 class="section-title">학습 목표</h2>
+                <div class="learning-objectives">
+                    <div class="objective-item">
+                        <i class="fas fa-check-circle"></i>
+                        <span>딥페이크 생성 기술의 원리와 작동 방식 이해</span>
+                    </div>
+                    <div class="objective-item">
+                        <i class="fas fa-check-circle"></i>
+                        <span>딥페이크 성범죄 급증 현황과 실제 피해 사례 파악</span>
+                    </div>
+                    <div class="objective-item">
+                        <i class="fas fa-check-circle"></i>
+                        <span>시각적, 청각적 딥페이크 식별 기법 습득</span>
+                    </div>
+                    <div class="objective-item">
+                        <i class="fas fa-check-circle"></i>
+                        <span>딥페이크 탐지 도구 및 기술적 방법 활용</span>
+                    </div>
+                    <div class="objective-item">
+                        <i class="fas fa-check-circle"></i>
+                        <span>강화된 법적 처벌과 피해자 지원 시스템 이해</span>
+                    </div>
+                    <div class="objective-item">
+                        <i class="fas fa-check-circle"></i>
+                        <span>딥페이크 범죄 피해 시 신고 및 대응 방안 숙지</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 1. 딥페이크 기술의 원리 -->
+        <section class="section alt-bg">
+            <div class="container">
+                <h2 class="section-title">1. 딥페이크 기술의 원리</h2>
+                
+                <div class="definition-box">
+                    <h3>딥페이크란?</h3>
+                    <p>딥페이크는 '딥러닝(Deep Learning)'과 '가짜(Fake)'의 합성어로, AI와 머신러닝 기술을 사용하여 조작되거나 생성된 오디오, 비디오, 이미지를 포함하는 매우 사실적인 디지털 창작물입니다.</p>
+                </div>
+
+                <div class="crime-evolution">
+                    <h3>핵심 기술: 생성적 적대 신경망 (GANs)</h3>
+                    <div class="evolution-grid">
+                        <div class="evolution-item">
+                            <div class="before">
+                                <h4><i class="fas fa-brain"></i> 생성자 (Generator)</h4>
+                                <p><strong>가짜 콘텐츠를 생성하는 AI 네트워크</strong></p><br/>
+                                <ul>
+                                    <li>실제 데이터를 학습</li>
+                                    <li>새로운 가짜 데이터 생성</li>
+                                    <li>점점 더 정교한 결과물 제작</li>
+                                </ul>
+                            </div>
+                            <div class="arrow">VS</div>
+                            <div class="after">
+                                <h4><i class="fas fa-search"></i> 판별자 (Discriminator)</h4>
+                                <p><strong>진짜와 가짜를 구별하는 AI 네트워크</strong></p><br/>
+                                <ul>
+                                    <li>콘텐츠의 진위 여부 판별</li>
+                                    <li>가짜를 탐지하려고 시도</li>
+                                    <li>생성자의 약점 파악</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="definition-box">
+                        <h4>결과</h4>
+                        <p>두 네트워크가 서로 경쟁하며 발전하여, 점점 더 정교하고 탐지하기 어려운 딥페이크가 생성됩니다.</p>
+                    </div>
+                </div>
+                <br/>
+                <div class="ai-impact">
+                    <h3>딥페이크의 주요 유형</h3>
+                    <div class="deepfake-types-enhanced">
+                        <div class="deepfake-type-card video-type">
+                            <div class="type-header">
+                                <div class="type-icon">
+                                    <i class="fas fa-video"></i>
+                                </div>
+                                <div class="type-meta">
+                                    <h4>영상 딥페이크</h4>
+                                    <div class="difficulty-badge high">고위험</div>
+                                </div>
+                            </div>
+                            <div class="type-content">
+                                <p class="type-description">실제 사람의 얼굴을 다른 영상에 합성하거나 말하지 않은 내용을 말하는 것처럼 조작하는 기술</p>
+                                
+                                <div class="type-stats">
+                                    <div class="stat-item">
+                                        <span class="stat-label">탐지 난이도</span>
+                                        <div class="stat-bar">
+                                            <div class="stat-fill" style="width: 85%"></div>
+                                        </div>
+                                        <span class="stat-value">85%</span>
+                                    </div>
+                                    <div class="stat-item">
+                                        <span class="stat-label">생성 시간</span>
+                                        <span class="stat-text">2-8시간</span>
+                                    </div>
+                                </div>
+
+                                <div class="type-examples">
+                                    <h5><i class="fas fa-exclamation-triangle"></i> 주요 악용 사례</h5>
+                                    <ul>
+                                        <li><strong>정치적 조작:</strong> 정치인이 하지 않은 발언을 한 것처럼 조작</li>
+                                        <li><strong>성범죄:</strong> 피해자의 얼굴을 음란 영상에 합성</li>
+                                        <li><strong>사기:</strong> 유명 인사나 기업인으로 위장한 투자 권유</li>
+                                        <li><strong>명예훼손:</strong> 허위 상황에서 발언하는 것처럼 조작</li>
+                                        <li><strong>사회 혼란:</strong> 가짜 뉴스나 루머 확산용 영상 제작</li>
+                                    </ul>
+                                </div>
+
+                                <div class="detection-hints">
+                                    <h5><i class="fas fa-search"></i> 탐지 포인트</h5>
+                                    <div class="hint-tags">
+                                        <span class="hint-tag">부자연스러운 깜빡임</span>
+                                        <span class="hint-tag">얼굴 경계선 흐림</span>
+                                        <span class="hint-tag">조명 불일치</span>
+                                        <span class="hint-tag">립싱크 오차</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="deepfake-type-card audio-type">
+                            <div class="type-header">
+                                <div class="type-icon">
+                                    <i class="fas fa-microphone"></i>
+                                </div>
+                                <div class="type-meta">
+                                    <h4>음성 딥페이크</h4>
+                                    <div class="difficulty-badge critical">초고위험</div>
+                                </div>
+                            </div>
+                            <div class="type-content">
+                                <p class="type-description">특정인의 목소리를 복제하여 가짜 음성을 생성하는 기술. 최근 보이스피싱에 악용 급증</p>
+                                
+                                <div class="type-stats">
+                                    <div class="stat-item">
+                                        <span class="stat-label">탐지 난이도</span>
+                                        <div class="stat-bar">
+                                            <div class="stat-fill" style="width: 95%"></div>
+                                        </div>
+                                        <span class="stat-value">95%</span>
+                                    </div>
+                                    <div class="stat-item">
+                                        <span class="stat-label">필요 샘플</span>
+                                        <span class="stat-text">30초~3분</span>
+                                    </div>
+                                </div>
+
+                                <div class="type-examples">
+                                    <h5><i class="fas fa-exclamation-triangle"></i> 주요 악용 사례</h5>
+                                    <ul>
+                                        <li><strong>보이스피싱:</strong> 가족 목소리로 긴급상황 연출</li>
+                                        <li><strong>기업 사기:</strong> CEO나 임원 목소리로 거래 지시</li>
+                                        <li><strong>협박:</strong> 권위자나 유명인 목소리로 협박</li>
+                                        <li><strong>정보 탈취:</strong> 지인 목소리로 개인정보 요구</li>
+                                        <li><strong>투자 사기:</strong> 전문가 목소리로 허위 투자 권유</li>
+                                    </ul>
+                                </div>
+
+                                <div class="detection-hints">
+                                    <h5><i class="fas fa-search"></i> 탐지 포인트</h5>
+                                    <div class="hint-tags">
+                                        <span class="hint-tag">감정 표현 부자연</span>
+                                        <span class="hint-tag">호흡 패턴 이상</span>
+                                        <span class="hint-tag">단어 끝 어색함</span>
+                                        <span class="hint-tag">배경음 불일치</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="deepfake-type-card image-type">
+                            <div class="type-header">
+                                <div class="type-icon">
+                                    <i class="fas fa-camera"></i>
+                                </div>
+                                <div class="type-meta">
+                                    <h4>이미지 딥페이크</h4>
+                                    <div class="difficulty-badge medium">중위험</div>
+                                </div>
+                            </div>
+                            <div class="type-content">
+                                <p class="type-description">존재하지 않는 인물 사진을 생성하거나 실제 사진을 조작하여 가짜 이미지를 만드는 기술</p>
+                                
+                                <div class="type-stats">
+                                    <div class="stat-item">
+                                        <span class="stat-label">탐지 난이도</span>
+                                        <div class="stat-bar">
+                                            <div class="stat-fill" style="width: 70%"></div>
+                                        </div>
+                                        <span class="stat-value">70%</span>
+                                    </div>
+                                    <div class="stat-item">
+                                        <span class="stat-label">생성 시간</span>
+                                        <span class="stat-text">수초~수분</span>
+                                    </div>
+                                </div>
+
+                                <div class="type-examples">
+                                    <h5><i class="fas fa-exclamation-triangle"></i> 주요 악용 사례</h5>
+                                    <ul>
+                                        <li><strong>신분 위조:</strong> 가짜 프로필 사진으로 계정 생성</li>
+                                        <li><strong>문서 위조:</strong> 신분증이나 공문서 조작</li>
+                                        <li><strong>로맨스 스캠:</strong> 매력적인 가짜 인물로 연애 사기</li>
+                                        <li><strong>허위 증거:</strong> 사건 현장이나 상황 조작</li>
+                                        <li><strong>광고 사기:</strong> 가짜 후기나 인증샷 제작</li>
+                                    </ul>
+                                </div>
+
+                                <div class="detection-hints">
+                                    <h5><i class="fas fa-search"></i> 탐지 포인트</h5>
+                                    <div class="hint-tags">
+                                        <span class="hint-tag">대칭성 문제</span>
+                                        <span class="hint-tag">배경 불일치</span>
+                                        <span class="hint-tag">메타데이터 이상</span>
+                                        <span class="hint-tag">해상도 차이</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="deepfake-type-card text-type">
+                            <div class="type-header">
+                                <div class="type-icon">
+                                    <i class="fas fa-edit"></i>
+                                </div>
+                                <div class="type-meta">
+                                    <h4>텍스트 딥페이크</h4>
+                                    <div class="difficulty-badge high">고위험</div>
+                                </div>
+                            </div>
+                            <div class="type-content">
+                                <p class="type-description">특정인의 문체나 스타일을 모방하여 가짜 텍스트를 생성하는 AI 기술</p>
+                                
+                                <div class="type-stats">
+                                    <div class="stat-item">
+                                        <span class="stat-label">탐지 난이도</span>
+                                        <div class="stat-bar">
+                                            <div class="stat-fill" style="width: 80%"></div>
+                                        </div>
+                                        <span class="stat-value">80%</span>
+                                    </div>
+                                    <div class="stat-item">
+                                        <span class="stat-label">생성 시간</span>
+                                        <span class="stat-text">수분~수십분</span>
+                                    </div>
+                                </div>
+
+                                <div class="type-examples">
+                                    <h5><i class="fas fa-exclamation-triangle"></i> 주요 악용 사례</h5>
+                                    <ul>
+                                        <li><strong>가짜 뉴스:</strong> 기자나 언론사 스타일 모방 기사</li>
+                                        <li><strong>피싱 메일:</strong> 기업이나 기관 공식 문서 위조</li>
+                                        <li><strong>소셜 조작:</strong> 특정인 계정으로 위장한 게시물</li>
+                                        <li><strong>학술 부정:</strong> 연구자나 전문가 글 도용</li>
+                                        <li><strong>명예훼손:</strong> 타인 명의로 부적절한 발언 작성</li>
+                                    </ul>
+                                </div>
+
+                                <div class="detection-hints">
+                                    <h5><i class="fas fa-search"></i> 탐지 포인트</h5>
+                                    <div class="hint-tags">
+                                        <span class="hint-tag">문체 불일치</span>
+                                        <span class="hint-tag">맥락 부자연</span>
+                                        <span class="hint-tag">출처 불분명</span>
+                                        <span class="hint-tag">시점 오류</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="deepfake-warning-box">
+                        <div class="warning-header">
+                            <i class="fas fa-exclamation-triangle"></i>
+                            <h4>2024년 딥페이크 범죄 현황</h4>
+                        </div>
+                        <div class="warning-stats">
+                            <div class="warning-stat-item">
+                                <span class="stat-number">96%</span>
+                                <span class="stat-desc">딥페이크 포르노 영상 비율</span>
+                            </div>
+                            <div class="warning-stat-item">
+                                <span class="stat-number">3,000%</span>
+                                <span class="stat-desc">전년 대비 딥페이크 음성 사기 증가율</span>
+                            </div>
+                            <div class="warning-stat-item">
+                                <span class="stat-number">246건</span>
+                                <span class="stat-desc">2024년 3-8월 국내 적발 건수</span>
+                            </div>
+                        </div>
+                        <p class="warning-note">
+                            <i class="fas fa-info-circle"></i>
+                            딥페이크 기술은 나날이 정교해지고 있으며, 개인의 주의와 사회적 대응이 필수적입니다.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="deepfake-process-compact">
+                    <div class="process-header">
+                        <h3><i class="fas fa-flask"></i> 딥페이크 생성 과정: 범죄자들은 이렇게 만든다</h3>
+                        <div class="process-warning-compact">
+                            <i class="fas fa-exclamation-triangle"></i>
+                            <span>교육 목적 - 악용 금지</span>
+                        </div>
+                    </div>
+
+                    <div class="process-flow">
+                        <div class="flow-header">
+                            <h4>4단계 제작 파이프라인</h4>
+                            <div class="flow-stats">
+                                <span>총 2~7일</span>
+                                <span>성공률 85~95%</span>
+                                <span>비용 50~200만원</span>
+                            </div>
+                        </div>
+
+                        <div class="process-grid">
+                            <div class="process-card step-1">
+                                <div class="card-header">
+                                    <div class="step-badge">1</div>
+                                    <div class="step-title">
+                                        <h4><i class="fas fa-search"></i> 타겟 선정 & 수집</h4>
+                                        <div class="step-time">1~3일 / 쉬움</div>
+                                    </div>
+                                </div>
+                                <div class="card-body">
+                                    <div class="dual-column">
+                                        <div class="left-col">
+                                            <h5>선정 기준</h5>
+                                            <ul class="compact-list">
+                                                <li>SNS 활발 활동</li>
+                                                <li>유명인/정치인</li>
+                                                <li>개인적 원한</li>
+                                                <li>경제적 이익</li>
+                                            </ul>
+                                        </div>
+                                        <div class="right-col">
+                                            <h5>수집 데이터</h5>
+                                            <div class="data-bars">
+                                                <div class="data-item">
+                                                    <span>얼굴사진</span>
+                                                    <div class="mini-bar"><div class="fill" style="width: 90%"></div></div>
+                                                    <small>500~2000장</small>
+                                                </div>
+                                                <div class="data-item">
+                                                    <span>음성</span>
+                                                    <div class="mini-bar"><div class="fill" style="width: 75%"></div></div>
+                                                    <small>5~30분</small>
+                                                </div>
+                                                <div class="data-item">
+                                                    <span>영상</span>
+                                                    <div class="mini-bar"><div class="fill" style="width: 60%"></div></div>
+                                                    <small>10~50개</small>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="protection-tip">
+                                        <i class="fas fa-shield-alt"></i>
+                                        <span>대응: SNS 공개범위 제한, 사진 업로드 자제</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="process-card step-2">
+                                <div class="card-header">
+                                    <div class="step-badge">2</div>
+                                    <div class="step-title">
+                                        <h4><i class="fas fa-brain"></i> AI 모델 훈련</h4>
+                                        <div class="step-time">6~48시간 / 어려움</div>
+                                    </div>
+                                </div>
+                                <div class="card-body">
+                                    <div class="training-compact">
+                                        <div class="training-phases">
+                                            <div class="phase">
+                                                <h5>전처리</h5>
+                                                <ul class="mini-list">
+                                                    <li>얼굴 감지</li>
+                                                    <li>품질 향상</li>
+                                                    <li>데이터 증강</li>
+                                                </ul>
+                                            </div>
+                                            <div class="phase">
+                                                <h5>GAN 훈련</h5>
+                                                <div class="gan-mini">
+                                                    <div class="gen-disc">
+                                                        <span class="gen">생성자</span>
+                                                        <div class="vs">VS</div>
+                                                        <span class="disc">판별자</span>
+                                                    </div>
+                                                    <div class="accuracy-display">
+                                                        <span class="acc-gen">95%</span>
+                                                        <span class="acc-disc">50%</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="resource-mini">
+                                            <div class="res-item">
+                                                <i class="fas fa-microchip"></i>
+                                                <span>RTX 3080+</span>
+                                            </div>
+                                            <div class="res-item">
+                                                <i class="fas fa-memory"></i>
+                                                <span>32GB RAM</span>
+                                            </div>
+                                            <div class="res-item">
+                                                <i class="fas fa-hdd"></i>
+                                                <span>500GB</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="process-card step-3">
+                                <div class="card-header">
+                                    <div class="step-badge">3</div>
+                                    <div class="step-title">
+                                        <h4><i class="fas fa-magic"></i> 콘텐츠 생성</h4>
+                                        <div class="step-time">30분~4시간 / 보통</div>
+                                    </div>
+                                </div>
+                                <div class="card-body">
+                                    <div class="generation-compact">
+                                        <div class="gen-types-mini">
+                                            <div class="gen-type-item">
+                                                <div class="type-header">
+                                                    <i class="fas fa-video"></i>
+                                                    <span>영상 딥페이크</span>
+                                                </div>
+                                                <div class="type-flow">원본 → 얼굴추출 → 합성 → 립싱크</div>
+                                                <div class="type-time">2~4시간 (1분영상)</div>
+                                            </div>
+                                            <div class="gen-type-item">
+                                                <div class="type-header">
+                                                    <i class="fas fa-microphone"></i>
+                                                    <span>음성 딥페이크</span>
+                                                </div>
+                                                <div class="type-flow">텍스트 → 음성특징 → 톤조정</div>
+                                                <div class="type-time">30분~1시간 (5분음성)</div>
+                                            </div>
+                                        </div>
+                                        <div class="quality-indicators">
+                                            <div class="quality-factor">
+                                                <span>원본품질</span>
+                                                <div class="impact high">높음</div>
+                                            </div>
+                                            <div class="quality-factor">
+                                                <span>데이터량</span>
+                                                <div class="impact high">높음</div>
+                                            </div>
+                                            <div class="quality-factor">
+                                                <span>처리시간</span>
+                                                <div class="impact medium">보통</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="process-card step-4">
+                                <div class="card-header">
+                                    <div class="step-badge">4</div>
+                                    <div class="step-title">
+                                        <h4><i class="fas fa-share-alt"></i> 후처리 & 유포</h4>
+                                        <div class="step-time">2~12시간 / 보통</div>
+                                    </div>
+                                </div>
+                                <div class="card-body">
+                                    <div class="post-compact">
+                                        <div class="post-steps">
+                                            <h5>후처리 작업</h5>
+                                            <div class="step-tags">
+                                                <span class="tag">아티팩트 제거</span>
+                                                <span class="tag">색감 보정</span>
+                                                <span class="tag">음성 동기화</span>
+                                                <span class="tag">메타데이터 조작</span>
+                                            </div>
+                                        </div>
+                                        <div class="distribution-compact">
+                                            <h5>유포 경로</h5>
+                                            <div class="dist-grid-mini">
+                                                <div class="dist-item">
+                                                    <i class="fas fa-users"></i>
+                                                    <span>SNS</span>
+                                                </div>
+                                                <div class="dist-item">
+                                                    <i class="fas fa-comments"></i>
+                                                    <span>메신저</span>
+                                                </div>
+                                                <div class="dist-item">
+                                                    <i class="fas fa-globe"></i>
+                                                    <span>웹사이트</span>
+                                                </div>
+                                                <div class="dist-item">
+                                                    <i class="fas fa-envelope"></i>
+                                                    <span>이메일</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="prevention-summary">
+                            <div class="summary-header">
+                                <i class="fas fa-shield-alt"></i>
+                                <h4>단계별 차단 방법</h4>
+                            </div>
+                            <div class="prevention-steps">
+                                <div class="prev-step">
+                                    <span class="prev-number">1</span>
+                                    <span class="prev-text">개인정보 노출 최소화</span>
+                                </div>
+                                <div class="prev-step">
+                                    <span class="prev-number">2-3</span>
+                                    <span class="prev-text">AI 탐지도구 활용</span>
+                                </div>
+                                <div class="prev-step">
+                                    <span class="prev-number">4</span>
+                                    <span class="prev-text">신속한 신고 & 법적조치</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 2. 딥페이크 식별 방법 -->
+        <section class="section">
+            <div class="container">
+                <h2 class="section-title">2. 딥페이크 식별 방법</h2>
+                
+                <div class="detection-methodology">
+                    <div class="method-overview">
+                        <div class="overview-header">
+                            <h3><i class="fas fa-search-location"></i> 3단계 탐지 시스템</h3>
+                            <p>시각적 → 청각적 → 맥락적 순서로 체계적인 딥페이크 식별</p>
+                        </div>
+                        <div class="detection-flow">
+                            <div class="flow-step active" data-step="visual">
+                                <div class="step-icon">
+                                    <i class="fas fa-eye"></i>
+                                </div>
+                                <span>시각적 분석</span>
+                            </div>
+                            <div class="flow-arrow">→</div>
+                            <div class="flow-step" data-step="audio">
+                                <div class="step-icon">
+                                    <i class="fas fa-headphones"></i>
+                                </div>
+                                <span>청각적 분석</span>
+                            </div>
+                            <div class="flow-arrow">→</div>
+                            <div class="flow-step" data-step="context">
+                                <div class="step-icon">
+                                    <i class="fas fa-puzzle-piece"></i>
+                                </div>
+                                <span>맥락적 검증</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="detection-panels">
+                        <div class="detection-panel active" id="visual-panel">
+                            <div class="panel-header">
+                                <h4><i class="fas fa-eye"></i> 시각적 식별법</h4>
+                                <div class="difficulty-indicator">
+                                    <span class="difficulty-level easy">초급</span>
+                                    <span class="accuracy-rate">정확도 75%</span>
+                                </div>
+                            </div>
+                            <div class="detection-grid">
+                                <div class="detection-item">
+                                    <div class="item-icon">
+                                        <i class="fas fa-eye-slash"></i>
+                                    </div>
+                                    <div class="item-content">
+                                        <h5>눈과 깜빡임</h5>
+                                        <p>부자연스러운 깜빡임 빈도, 좌우 눈 비동기화</p>
+                                        <div class="detection-tips">
+                                            <span class="tip">1초에 15-20회 깜빡임이 정상</span>
+                                            <span class="tip">양쪽 눈이 동시에 깜빡이는지 확인</span>
+                                        </div>
+                                    </div>
+                                    <div class="severity-badge high">높음</div>
+                                </div>
+                                <div class="detection-item">
+                                    <div class="item-icon">
+                                        <i class="fas fa-user-circle"></i>
+                                    </div>
+                                    <div class="item-content">
+                                        <h5>얼굴 경계선</h5>
+                                        <p>얼굴과 목 경계선 흐림, 피부 질감 불일치</p>
+                                        <div class="detection-tips">
+                                            <span class="tip">턱선과 목 경계가 자연스러운지</span>
+                                            <span class="tip">피부 톤과 질감의 일관성</span>
+                                        </div>
+                                    </div>
+                                    <div class="severity-badge high">높음</div>
+                                </div>
+                                <div class="detection-item">
+                                    <div class="item-icon">
+                                        <i class="fas fa-sun"></i>
+                                    </div>
+                                    <div class="item-content">
+                                        <h5>조명과 그림자</h5>
+                                        <p>얼굴과 배경의 조명 불일치, 그림자 방향 문제</p>
+                                        <div class="detection-tips">
+                                            <span class="tip">광원 방향의 일관성</span>
+                                            <span class="tip">그림자가 자연스럽게 떨어지는지</span>
+                                        </div>
+                                    </div>
+                                    <div class="severity-badge medium">보통</div>
+                                </div>
+                                <div class="detection-item">
+                                    <div class="item-icon">
+                                        <i class="fas fa-tv"></i>
+                                    </div>
+                                    <div class="item-content">
+                                        <h5>화질과 해상도</h5>
+                                        <p>얼굴 부분만 해상도 차이, 픽셀화 현상</p>
+                                        <div class="detection-tips">
+                                            <span class="tip">전체적인 화질의 균일성</span>
+                                            <span class="tip">압축 아티팩트 패턴</span>
+                                        </div>
+                                    </div>
+                                    <div class="severity-badge medium">보통</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="detection-panel" id="audio-panel">
+                            <div class="panel-header">
+                                <h4><i class="fas fa-headphones"></i> 청각적 식별법</h4>
+                                <div class="difficulty-indicator">
+                                    <span class="difficulty-level medium">중급</span>
+                                    <span class="accuracy-rate">정확도 85%</span>
+                                </div>
+                            </div>
+                            <div class="detection-grid">
+                                <div class="detection-item">
+                                    <div class="item-icon">
+                                        <i class="fas fa-music"></i>
+                                    </div>
+                                    <div class="item-content">
+                                        <h5>음성 톤과 억양</h5>
+                                        <p>평소와 다른 말투, 감정 표현 부자연</p>
+                                        <div class="detection-tips">
+                                            <span class="tip">평소 목소리와 비교</span>
+                                            <span class="tip">감정 변화의 자연스러움</span>
+                                        </div>
+                                    </div>
+                                    <div class="severity-badge high">높음</div>
+                                </div>
+                                <div class="detection-item">
+                                    <div class="item-icon">
+                                        <i class="fas fa-wave-square"></i>
+                                    </div>
+                                    <div class="item-content">
+                                        <h5>음성 품질</h5>
+                                        <p>단어 끝부분 어색함, 배경 소음 불일치</p>
+                                        <div class="detection-tips">
+                                            <span class="tip">발음의 명확성</span>
+                                            <span class="tip">배경음의 연속성</span>
+                                        </div>
+                                    </div>
+                                    <div class="severity-badge high">높음</div>
+                                </div>
+                                <div class="detection-item">
+                                    <div class="item-icon">
+                                        <i class="fas fa-sync-alt"></i>
+                                    </div>
+                                    <div class="item-content">
+                                        <h5>립싱크</h5>
+                                        <p>입 움직임과 음성 불일치, 말하는 속도 차이</p>
+                                        <div class="detection-tips">
+                                            <span class="tip">입모양과 소리의 동기화</span>
+                                            <span class="tip">말하는 속도의 일관성</span>
+                                        </div>
+                                    </div>
+                                    <div class="severity-badge critical">매우높음</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="detection-panel" id="context-panel">
+                            <div class="panel-header">
+                                <h4><i class="fas fa-puzzle-piece"></i> 맥락적 검증법</h4>
+                                <div class="difficulty-indicator">
+                                    <span class="difficulty-level advanced">고급</span>
+                                    <span class="accuracy-rate">정확도 95%</span>
+                                </div>
+                            </div>
+                            <div class="detection-grid">
+                                <div class="detection-item">
+                                    <div class="item-icon">
+                                        <i class="fas fa-clock"></i>
+                                    </div>
+                                    <div class="item-content">
+                                        <h5>시간적 맥락</h5>
+                                        <p>해당 시점 인물의 위치, 시의적절성 검증</p>
+                                        <div class="detection-tips">
+                                            <span class="tip">공식 일정과 대조</span>
+                                            <span class="tip">시간대별 활동 확인</span>
+                                        </div>
+                                    </div>
+                                    <div class="severity-badge high">높음</div>
+                                </div>
+                                <div class="detection-item">
+                                    <div class="item-icon">
+                                        <i class="fas fa-search-plus"></i>
+                                    </div>
+                                    <div class="item-content">
+                                        <h5>출처 신뢰성</h5>
+                                        <p>콘텐츠 출처, 유포 경로의 신뢰성 평가</p>
+                                        <div class="detection-tips">
+                                            <span class="tip">최초 업로드 계정 확인</span>
+                                            <span class="tip">언론사 검증 여부</span>
+                                        </div>
+                                    </div>
+                                    <div class="severity-badge critical">매우높음</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="practical-checklist">
+                        <div class="checklist-header">
+                            <h3><i class="fas fa-clipboard-check"></i> 실전 체크리스트</h3>
+                            <p>의심스러운 콘텐츠 발견 시 단계별 확인 사항</p>
+                        </div>
+                        <div class="checklist-container">
+                            <div class="checklist-column">
+                                <h4>1차 시각 검증</h4>
+                                <div class="checklist-items">
+                                    <label class="checklist-item">
+                                        <input type="checkbox">
+                                        <span class="checkmark"></span>
+                                        얼굴과 목 경계선이 자연스러운가?
+                                    </label>
+                                    <label class="checklist-item">
+                                        <input type="checkbox">
+                                        <span class="checkmark"></span>
+                                        눈 깜빡임이 자연스러운가?
+                                    </label>
+                                    <label class="checklist-item">
+                                        <input type="checkbox">
+                                        <span class="checkmark"></span>
+                                        조명과 그림자가 일관된가?
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="checklist-column">
+                                <h4>2차 청각 검증</h4>
+                                <div class="checklist-items">
+                                    <label class="checklist-item">
+                                        <input type="checkbox">
+                                        <span class="checkmark"></span>
+                                        음성과 입 움직임이 일치하는가?
+                                    </label>
+                                    <label class="checklist-item">
+                                        <input type="checkbox">
+                                        <span class="checkmark"></span>
+                                        목소리 톤이 평소와 같은가?
+                                    </label>
+                                    <label class="checklist-item">
+                                        <input type="checkbox">
+                                        <span class="checkmark"></span>
+                                        배경음이 자연스러운가?
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="checklist-column">
+                                <h4>3차 맥락 검증</h4>
+                                <div class="checklist-items">
+                                    <label class="checklist-item">
+                                        <input type="checkbox">
+                                        <span class="checkmark"></span>
+                                        출처가 명확하고 신뢰할 만한가?
+                                    </label>
+                                    <label class="checklist-item">
+                                        <input type="checkbox">
+                                        <span class="checkmark"></span>
+                                        내용이 시의적절하고 논리적인가?
+                                    </label>
+                                    <label class="checklist-item">
+                                        <input type="checkbox">
+                                        <span class="checkmark"></span>
+                                        다른 신뢰할 만한 소스에서 확인되는가?
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="checklist-result">
+                            <div class="result-indicator">
+                                <div class="result-gauge">
+                                    <div class="gauge-fill" style="width: 0%"></div>
+                                </div>
+                                <p class="result-text">의심 항목: <span id="suspicious-count">0</span>/9 - <span id="risk-level">안전</span></p>
+                            </div>
+                            <div class="result-advice">
+                                <p><strong>판정 기준:</strong></p>
+                                <ul>
+                                    <li><span class="safe">0-2개:</span> 진짜일 가능성 높음</li>
+                                    <li><span class="caution">3-5개:</span> 추가 검증 필요</li>
+                                    <li><span class="danger">6개 이상:</span> 딥페이크 가능성 높음</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 딥페이크 성범죄 현황 -->
+        <section class="section alt-bg">
+            <div class="container">
+                <h2 class="section-title">딥페이크 성범죄 심각한 현황</h2>
+                
+                <div class="crisis-alert">
+                    <div class="alert-header">
+                        <i class="fas fa-exclamation-triangle"></i>
+                        <h3>2024년 딥페이크 성범죄 급증 경보</h3>
+                        <p>정부 공식 발표 - 피해가 폭증하고 있습니다</p>
+                    </div>
+                </div>
+
+                <div class="korean-statistics">
+                    <h3>📊 한국 딥페이크 성범죄 현황 (2024년 기준)</h3>
+                    <div class="stats-comparison">
+                        <div class="stats-year">
+                            <h4>2021년 vs 2024년 피해 증가율</h4>
+                            <div class="comparison-grid">
+                                <div class="stat-card critical">
+                                    <div class="stat-number">518%</div>
+                                    <div class="stat-desc">경찰신고건 급증<br/>(156건 → 964건)</div>
+                                    <div class="stat-trend">
+                                        <i class="fas fa-arrow-up"></i>
+                                        <span>2024년 10월 기준</span>
+                                    </div>
+                                </div>
+                                <div class="stat-card critical">
+                                    <div class="stat-number">582%</div>
+                                    <div class="stat-desc">피해자 지원 급증<br/>(176명 → 1,201명)</div>
+                                    <div class="stat-trend">
+                                        <i class="fas fa-arrow-up"></i>
+                                        <span>디지털 성범죄 피해자 지원센터의 통계 기준</span>
+                                    </div>
+                                </div>
+                                <div class="stat-card critical">
+                                    <div class="stat-number">439%</div>
+                                    <div class="stat-desc">방심위 심의건 급증<br/>(1,913건 → 10,305건)</div>
+                                    <div class="stat-trend">
+                                        <i class="fas fa-arrow-up"></i>
+                                        <span>2024년 9월 기준</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="real-cases">
+                    <h3>🚨 실제 딥페이크 성범죄 피해 사례</h3>
+                    <div class="case-grid">
+                        <div class="case-card severe">
+                            <div class="case-header">
+                                <i class="fas fa-university"></i>
+                                <h4>인하대 딥페이크 사건</h4>
+                                <span class="case-date">2024년 8월</span>
+                            </div>
+                            <div class="case-content">
+                                <div class="victim-info">
+                                    <span class="victim-count">최소 4명 피해</span>
+                                    <span class="platform-info">텔레그램 대화방 1,200여명 가입</span>
+                                </div>
+                                <p class="case-description">대학생들의 얼굴을 음란 영상에 합성하여 텔레그램 단체방에서 공유. 가해자들이 조직적으로 활동하며 피해 확산</p>
+                                <div class="case-impact">
+                                    <span class="impact-tag">학업 중단</span>
+                                    <span class="impact-tag">정신적 피해</span>
+                                    <span class="impact-tag">사회적 낙인</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="case-card severe">
+                            <div class="case-header">
+                                <i class="fas fa-graduation-cap"></i>
+                                <h4>중고생 집단 피해</h4>
+                                <span class="case-date">2024년 1-10월</span>
+                            </div>
+                            <div class="case-content">
+                                <div class="victim-info">
+                                    <span class="victim-count">피해자 901명</span>
+                                    <span class="platform-info">피해신고 542건</span>
+                                </div>
+                                <p class="case-description">전국 중고등학교에서 동급생들 간 딥페이크 성범죄 확산. 주로 SNS에서 얻은 사진을 악용하여 제작</p>
+                                <div class="case-impact">
+                                    <span class="impact-tag">등교거부</span>
+                                    <span class="impact-tag">자해위험</span>
+                                    <span class="impact-tag">가족갈등</span>
+                                </div>
+                                <div class="case-result">
+                                    <strong>수사결과:</strong> 피의자 506명 검거 (10대 411명, 20대 77명)
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="case-card severe">
+                            <div class="case-header">
+                                <i class="fas fa-shield-alt"></i>
+                                <h4>군 딥페이크 성범죄</h4>
+                                <span class="case-date">2024년 9-11월</span>
+                            </div>
+                            <div class="case-content">
+                                <div class="victim-info">
+                                    <span class="victim-count">신고 38건</span>
+                                    <span class="platform-info">부대 내 확산</span>
+                                </div>
+                                <p class="case-description">군 내부망 사진을 이용한 딥페이크 제작 및 유포. 폐쇄적 환경 특성상 피해자 신고 어려움</p>
+                                <div class="case-impact">
+                                    <span class="impact-tag">복무환경 악화</span>
+                                    <span class="impact-tag">동료관계 파괴</span>
+                                </div>
+                                <div class="case-result">
+                                    <strong>대응조치:</strong> 내부망 사진 비활성화, 전군 특별교육 실시
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="case-card warning">
+                            <div class="case-header">
+                                <i class="fas fa-building"></i>
+                                <h4>대학 딥페이크 공유방</h4>
+                                <span class="case-date">2024년 10월 기준</span>
+                            </div>
+                            <div class="case-content">
+                                <div class="victim-info">
+                                    <span class="victim-count">70여개 단체방</span>
+                                    <span class="platform-info">전국 대학 확산</span>
+                                </div>
+                                <p class="case-description">대학별로 조직된 텔레그램 단체방에서 딥페이크 성착취물 공유. 체계적이고 조직적인 범죄 행태</p>
+                                <div class="case-impact">
+                                    <span class="impact-tag">대학생활 파괴</span>
+                                    <span class="impact-tag">진로 불안</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="trend-analysis">
+                    <h3>📈 딥페이크 성범죄 특징 분석</h3>
+                    <div class="trend-cards">
+                        <div class="trend-card danger">
+                            <i class="fas fa-users"></i>
+                            <h4>10대 중심 확산</h4>
+                            <div class="trend-stats">
+                                <div class="stat-item">
+                                    <span class="number">73.6%</span>
+                                    <span class="desc">피의자 중 10대 비중</span>
+                                </div>
+                                <div class="stat-item">
+                                    <span class="number">411명</span>
+                                    <span class="desc">10대 검거자 (전체 506명 중)</span>
+                                </div>
+                            </div>
+                            <p class="trend-desc">범죄에 대한 인식 부족으로 10대를 중심으로 급속 확산</p>
+                        </div>
+                        
+                        <div class="trend-card critical">
+                            <i class="fas fa-mobile-alt"></i>
+                            <h4>텔레그램 등 폐쇄형 플랫폼</h4>
+                            <p class="trend-desc">
+                                <strong>주요 특징:</strong><br/>
+                                • 익명성 보장으로 범죄자 추적 어려움<br/>
+                                • 대용량 파일 전송 가능<br/>
+                                • 암호화 통신으로 수사 방해<br/>
+                                • 해외 서버로 법적 대응 한계
+                            </p>
+                        </div>
+                        
+                        <div class="trend-card warning">
+                            <i class="fas fa-brain"></i>
+                            <h4>생성형 AI 보편화</h4>
+                            <p class="trend-desc">
+                                <strong>기술 발전 영향:</strong><br/>
+                                • 누구나 쉽게 제작 가능<br/>
+                                • 소량 데이터로도 정교한 결과<br/>
+                                • 탐지 기술보다 빠른 발전<br/>
+                                • 제작 시간 단축 (2-3초 샘플로 제작)
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. 기술적 탐지 도구 -->
+        <section class="section">
+            <div class="container">
+                <h2 class="section-title">3. 기술적 탐지 도구와 방법</h2>
+                
+                <div class="detection-tools-hub">
+                    <div class="tools-overview">
+                        <div class="overview-stats">
+                            <div class="stat-circle">
+                                <div class="circle-progress" data-percent="92">
+                                    <span class="percentage">92%</span>
+                                </div>
+                                <p>AI 탐지 정확도</p>
+                            </div>
+                            <div class="stat-circle">
+                                <div class="circle-progress" data-percent="15">
+                                    <span class="percentage">15+</span>
+                                </div>
+                                <p>상용 도구 수</p>
+                            </div>
+                            <div class="stat-circle">
+                                <div class="circle-progress" data-percent="246">
+                                    <span class="percentage">246</span>
+                                </div>
+                                <p>2024년 적발건수</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="tools-categories">
+                        <div class="category-tabs">
+                            <button class="tab-btn active" data-category="ai-detection">
+                                <i class="fas fa-robot"></i>
+                                AI 탐지 시스템
+                            </button>
+                            <button class="tab-btn" data-category="commercial-tools">
+                                <i class="fas fa-tools"></i>
+                                상용 도구
+                            </button>
+                            <button class="tab-btn" data-category="personal-methods">
+                                <i class="fas fa-user-check"></i>
+                                개인 검증법
+                            </button>
+                            <button class="tab-btn" data-category="korea-response">
+                                <i class="fas fa-flag"></i>
+                                국내 대응
+                            </button>
+                        </div>
+
+                        <div class="category-content">
+                            <div class="content-panel active" id="ai-detection">
+                                <div class="panel-title">
+                                    <h3><i class="fas fa-robot"></i> AI 기반 탐지 시스템</h3>
+                                    <p>최신 인공지능 기술을 활용한 자동화된 딥페이크 탐지</p>
+                                </div>
+                                <div class="tools-grid">
+                                    <div class="tool-card advanced">
+                                        <div class="tool-header">
+                                            <div class="tool-icon">
+                                                <i class="fas fa-microscope"></i>
+                                            </div>
+                                            <div class="tool-meta">
+                                                <h4>픽셀 수준 분석</h4>
+                                                <div class="accuracy-badge">정확도 89%</div>
+                                            </div>
+                                        </div>
+                                        <div class="tool-description">
+                                            <p>이미지의 픽셀 패턴과 압축 아티팩트를 분석하여 조작 흔적을 탐지</p>
+                                            <div class="tech-details">
+                                                <span class="tech-tag">CNN 분석</span>
+                                                <span class="tech-tag">아티팩트 검출</span>
+                                                <span class="tech-tag">압축 패턴</span>
+                                            </div>
+                                        </div>
+                                        <div class="tool-performance">
+                                            <div class="perf-item">
+                                                <span class="perf-label">처리속도</span>
+                                                <div class="perf-bar">
+                                                    <div class="perf-fill" style="width: 85%"></div>
+                                                </div>
+                                            </div>
+                                            <div class="perf-item">
+                                                <span class="perf-label">정확도</span>
+                                                <div class="perf-bar">
+                                                    <div class="perf-fill" style="width: 89%"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="tool-card advanced">
+                                        <div class="tool-header">
+                                            <div class="tool-icon">
+                                                <i class="fas fa-wave-square"></i>
+                                            </div>
+                                            <div class="tool-meta">
+                                                <h4>주파수 도메인 분석</h4>
+                                                <div class="accuracy-badge">정확도 94%</div>
+                                            </div>
+                                        </div>
+                                        <div class="tool-description">
+                                            <p>주파수 영역에서의 불일치나 인공적인 패턴을 식별</p>
+                                            <div class="tech-details">
+                                                <span class="tech-tag">FFT 변환</span>
+                                                <span class="tech-tag">주파수 분석</span>
+                                                <span class="tech-tag">스펙트럼 검사</span>
+                                            </div>
+                                        </div>
+                                        <div class="tool-performance">
+                                            <div class="perf-item">
+                                                <span class="perf-label">처리속도</span>
+                                                <div class="perf-bar">
+                                                    <div class="perf-fill" style="width: 70%"></div>
+                                                </div>
+                                            </div>
+                                            <div class="perf-item">
+                                                <span class="perf-label">정확도</span>
+                                                <div class="perf-bar">
+                                                    <div class="perf-fill" style="width: 94%"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="tool-card advanced">
+                                        <div class="tool-header">
+                                            <div class="tool-icon">
+                                                <i class="fas fa-brain"></i>
+                                            </div>
+                                            <div class="tool-meta">
+                                                <h4>딥러닝 탐지 모델</h4>
+                                                <div class="accuracy-badge">정확도 96%</div>
+                                            </div>
+                                        </div>
+                                        <div class="tool-description">
+                                            <p>대규모 데이터셋으로 훈련된 신경망 기반 탐지 시스템</p>
+                                            <div class="tech-details">
+                                                <span class="tech-tag">ResNet</span>
+                                                <span class="tech-tag">Transformer</span>
+                                                <span class="tech-tag">앙상블</span>
+                                            </div>
+                                        </div>
+                                        <div class="tool-performance">
+                                            <div class="perf-item">
+                                                <span class="perf-label">처리속도</span>
+                                                <div class="perf-bar">
+                                                    <div class="perf-fill" style="width: 60%"></div>
+                                                </div>
+                                            </div>
+                                            <div class="perf-item">
+                                                <span class="perf-label">정확도</span>
+                                                <div class="perf-bar">
+                                                    <div class="perf-fill" style="width: 96%"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="content-panel" id="commercial-tools">
+                                <div class="panel-title">
+                                    <h3><i class="fas fa-tools"></i> 상용 탐지 도구</h3>
+                                    <p>현재 실제로 사용 가능한 상업용 딥페이크 탐지 서비스</p>
+                                </div>
+                                <div class="commercial-tools-list">
+                                    <div class="commercial-tool">
+                                        <div class="tool-brand">
+                                            <div class="brand-logo">
+                                                <i class="fab fa-microsoft"></i>
+                                            </div>
+                                            <div class="brand-info">
+                                                <h4>Microsoft Video Authenticator</h4>
+                                                <span class="tool-type">무료 / 베타</span>
+                                            </div>
+                                        </div>
+                                        <div class="tool-specs">
+                                            <div class="spec-item">
+                                                <span class="spec-label">지원 형식</span>
+                                                <span class="spec-value">MP4, AVI, MOV</span>
+                                            </div>
+                                            <div class="spec-item">
+                                                <span class="spec-label">처리 시간</span>
+                                                <span class="spec-value">실시간</span>
+                                            </div>
+                                            <div class="spec-item">
+                                                <span class="spec-label">정확도</span>
+                                                <span class="spec-value">91%</span>
+                                            </div>
+                                        </div>
+                                        <div class="tool-features">
+                                            <span class="feature-tag">실시간 분석</span>
+                                            <span class="feature-tag">신뢰도 점수</span>
+                                            <span class="feature-tag">API 제공</span>
+                                        </div>
+                                    </div>
+
+                                    <div class="commercial-tool">
+                                        <div class="tool-brand">
+                                            <div class="brand-logo">
+                                                <i class="fas fa-shield-virus"></i>
+                                            </div>
+                                            <div class="brand-info">
+                                                <h4>Sensity AI</h4>
+                                                <span class="tool-type">유료 / 기업용</span>
+                                            </div>
+                                        </div>
+                                        <div class="tool-specs">
+                                            <div class="spec-item">
+                                                <span class="spec-label">지원 형식</span>
+                                                <span class="spec-value">이미지, 비디오</span>
+                                            </div>
+                                            <div class="spec-item">
+                                                <span class="spec-label">모니터링</span>
+                                                <span class="spec-value">24/7 실시간</span>
+                                            </div>
+                                            <div class="spec-item">
+                                                <span class="spec-label">정확도</span>
+                                                <span class="spec-value">94%</span>
+                                            </div>
+                                        </div>
+                                        <div class="tool-features">
+                                            <span class="feature-tag">대량 처리</span>
+                                            <span class="feature-tag">웹 크롤링</span>
+                                            <span class="feature-tag">알림 시스템</span>
+                                        </div>
+                                    </div>
+
+                                    <div class="commercial-tool">
+                                        <div class="tool-brand">
+                                            <div class="brand-logo">
+                                                <i class="fas fa-search-plus"></i>
+                                            </div>
+                                            <div class="brand-info">
+                                                <h4>DuckDuckGoose</h4>
+                                                <span class="tool-type">유료 / 전문가용</span>
+                                            </div>
+                                        </div>
+                                        <div class="tool-specs">
+                                            <div class="spec-item">
+                                                <span class="spec-label">특화 분야</span>
+                                                <span class="spec-value">얼굴 조작</span>
+                                            </div>
+                                            <div class="spec-item">
+                                                <span class="spec-label">분석 깊이</span>
+                                                <span class="spec-value">프레임별</span>
+                                            </div>
+                                            <div class="spec-item">
+                                                <span class="spec-label">정확도</span>
+                                                <span class="spec-value">93%</span>
+                                            </div>
+                                        </div>
+                                        <div class="tool-features">
+                                            <span class="feature-tag">상세 분석</span>
+                                            <span class="feature-tag">포렌식 리포트</span>
+                                            <span class="feature-tag">증거 보전</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="content-panel" id="personal-methods">
+                                <div class="panel-title">
+                                    <h3><i class="fas fa-user-check"></i> 개인 검증 방법</h3>
+                                    <p>누구나 쉽게 할 수 있는 딥페이크 검증 기법</p>
+                                </div>
+                                <div class="personal-methods-grid">
+                                    <div class="method-card easy">
+                                        <div class="method-number">1</div>
+                                        <div class="method-content">
+                                            <h4><i class="fas fa-search"></i> 역방향 이미지 검색</h4>
+                                            <p>Google 이미지 검색으로 원본 또는 유사 이미지 찾기</p>
+                                            <div class="method-steps">
+                                                <div class="step">
+                                                    <span class="step-num">①</span>
+                                                    <span>이미지를 Google에 드래그</span>
+                                                </div>
+                                                <div class="step">
+                                                    <span class="step-num">②</span>
+                                                    <span>카메라 아이콘 클릭 후 업로드</span>
+                                                </div>
+                                                <div class="step">
+                                                    <span class="step-num">③</span>
+                                                    <span>유사 이미지 결과 확인</span>
+                                                </div>
+                                            </div>
+                                            <div class="method-effectiveness">
+                                                <span class="effectiveness-label">효과성</span>
+                                                <div class="effectiveness-bar">
+                                                    <div class="effectiveness-fill" style="width: 70%"></div>
+                                                </div>
+                                                <span class="effectiveness-percent">70%</span>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="method-card medium">
+                                        <div class="method-number">2</div>
+                                        <div class="method-content">
+                                            <h4><i class="fas fa-file-alt"></i> 메타데이터 확인</h4>
+                                            <p>파일의 생성 정보, 카메라 데이터, 편집 이력 분석</p>
+                                            <div class="method-steps">
+                                                <div class="step">
+                                                    <span class="step-num">①</span>
+                                                    <span>파일 우클릭 → 속성 보기</span>
+                                                </div>
+                                                <div class="step">
+                                                    <span class="step-num">②</span>
+                                                    <span>온라인 메타데이터 뷰어 사용</span>
+                                                </div>
+                                                <div class="step">
+                                                    <span class="step-num">③</span>
+                                                    <span>EXIF 데이터 이상 여부 확인</span>
+                                                </div>
+                                            </div>
+                                            <div class="method-effectiveness">
+                                                <span class="effectiveness-label">효과성</span>
+                                                <div class="effectiveness-bar">
+                                                    <div class="effectiveness-fill" style="width: 60%"></div>
+                                                </div>
+                                                <span class="effectiveness-percent">60%</span>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="method-card easy">
+                                        <div class="method-number">3</div>
+                                        <div class="method-content">
+                                            <h4><i class="fas fa-check-double"></i> 크로스 체크</h4>
+                                            <p>여러 신뢰할 만한 뉴스 소스에서 동일 내용 확인</p>
+                                            <div class="method-steps">
+                                                <div class="step">
+                                                    <span class="step-num">①</span>
+                                                    <span>공식 언론사 확인</span>
+                                                </div>
+                                                <div class="step">
+                                                    <span class="step-num">②</span>
+                                                    <span>정부 기관 발표 확인</span>
+                                                </div>
+                                                <div class="step">
+                                                    <span class="step-num">③</span>
+                                                    <span>당사자 SNS 확인</span>
+                                                </div>
+                                            </div>
+                                            <div class="method-effectiveness">
+                                                <span class="effectiveness-label">효과성</span>
+                                                <div class="effectiveness-bar">
+                                                    <div class="effectiveness-fill" style="width: 90%"></div>
+                                                </div>
+                                                <span class="effectiveness-percent">90%</span>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="method-card advanced">
+                                        <div class="method-number">4</div>
+                                        <div class="method-content">
+                                            <h4><i class="fas fa-user-graduate"></i> 전문가 의견</h4>
+                                            <p>의심스러운 경우 전문가나 관련 기관에 문의</p>
+                                            <div class="method-steps">
+                                                <div class="step">
+                                                    <span class="step-num">①</span>
+                                                    <span>팩트체크 기관 문의</span>
+                                                </div>
+                                                <div class="step">
+                                                    <span class="step-num">②</span>
+                                                    <span>경찰청 사이버수사대 신고</span>
+                                                </div>
+                                                <div class="step">
+                                                    <span class="step-num">③</span>
+                                                    <span>관련 전문가 의견 수렴</span>
+                                                </div>
+                                            </div>
+                                            <div class="method-effectiveness">
+                                                <span class="effectiveness-label">효과성</span>
+                                                <div class="effectiveness-bar">
+                                                    <div class="effectiveness-fill" style="width: 95%"></div>
+                                                </div>
+                                                <span class="effectiveness-percent">95%</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="content-panel" id="korea-response">
+                                <div class="panel-title">
+                                    <h3><i class="fas fa-flag"></i> 국내 대응 현황</h3>
+                                    <p>한국의 딥페이크 범죄 대응 체계와 성과</p>
+                                </div>
+                                <div class="korea-response-dashboard">
+                                    <div class="response-timeline">
+                                        <div class="timeline-item">
+                                            <div class="timeline-year">2023</div>
+                                            <div class="timeline-content">
+                                                <h4>딥페이크 범죄 대응 TF 구성</h4>
+                                                <p>경찰청 사이버안전국 내 전담팀 신설</p>
+                                            </div>
+                                        </div>
+                                        <div class="timeline-item">
+                                            <div class="timeline-year">2024</div>
+                                            <div class="timeline-content">
+                                                <h4>AI 탐지 시스템 도입</h4>
+                                                <p>딥페이크 판별 프로그램 전국 배포</p>
+                                            </div>
+                                        </div>
+                                        <div class="timeline-item current">
+                                            <div class="timeline-year">진행중</div>
+                                            <div class="timeline-content">
+                                                <h4>실시간 모니터링 체계</h4>
+                                                <p>24시간 온라인 감시 시스템 운영</p>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="achievement-stats">
+                                        <div class="achievement-card">
+                                            <div class="achievement-icon">
+                                                <i class="fas fa-handcuffs"></i>
+                                            </div>
+                                            <div class="achievement-data">
+                                                <h4>246건</h4>
+                                                <p>2024년 3-8월 적발</p>
+                                                <span class="growth">+340% 증가</span>
+                                            </div>
+                                        </div>
+                                        <div class="achievement-card">
+                                            <div class="achievement-icon">
+                                                <i class="fas fa-shield-check"></i>
+                                            </div>
+                                            <div class="achievement-data">
+                                                <h4>89%</h4>
+                                                <p>탐지 성공률</p>
+                                                <span class="growth">+15% 향상</span>
+                                            </div>
+                                        </div>
+                                        <div class="achievement-card">
+                                            <div class="achievement-icon">
+                                                <i class="fas fa-clock"></i>
+                                            </div>
+                                            <div class="achievement-data">
+                                                <h4>2.3시간</h4>
+                                                <p>평균 대응 시간</p>
+                                                <span class="improvement">-65% 단축</span>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="technology-development">
+                                        <h4>기술 개발 현황</h4>
+                                        <div class="tech-progress-list">
+                                            <div class="tech-item">
+                                                <div class="tech-info">
+                                                    <h5>AI 기반 탐지 알고리즘</h5>
+                                                    <p>국산 딥러닝 모델 개발</p>
+                                                </div>
+                                                <div class="tech-progress">
+                                                    <div class="progress-bar">
+                                                        <div class="progress-fill" style="width: 85%"></div>
+                                                    </div>
+                                                    <span class="progress-text">85%</span>
+                                                </div>
+                                            </div>
+                                            <div class="tech-item">
+                                                <div class="tech-info">
+                                                    <h5>실시간 모니터링 시스템</h5>
+                                                    <p>24시간 자동 감시 체계</p>
+                                                </div>
+                                                <div class="tech-progress">
+                                                    <div class="progress-bar">
+                                                        <div class="progress-fill" style="width: 92%"></div>
+                                                    </div>
+                                                    <span class="progress-text">92%</span>
+                                                </div>
+                                            </div>
+                                            <div class="tech-item">
+                                                <div class="tech-info">
+                                                    <h5>디지털 워터마크</h5>
+                                                    <p>콘텐츠 원본 인증 기술</p>
+                                                </div>
+                                                <div class="tech-progress">
+                                                    <div class="progress-bar">
+                                                        <div class="progress-fill" style="width: 70%"></div>
+                                                    </div>
+                                                    <span class="progress-text">70%</span>
+                                                </div>
+                                            </div>
+                                            <div class="tech-item">
+                                                <div class="tech-info">
+                                                    <h5>블록체인 인증</h5>
+                                                    <p>분산 원장 기반 검증</p>
+                                                </div>
+                                                <div class="tech-progress">
+                                                    <div class="progress-bar">
+                                                        <div class="progress-fill" style="width: 60%"></div>
+                                                    </div>
+                                                    <span class="progress-text">60%</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. 딥페이크 범죄 대응 방안 -->
+        <section class="section">
+            <div class="container">
+                <h2 class="section-title">4. 정부 강화 대응 방안 및 피해자 지원</h2>
+                
+                <!-- 법적 처벌 강화 -->
+                <div class="legal-enforcement">
+                    <h3>⚖️ 2024년 9월 법적 처벌 대폭 강화</h3>
+                    <div class="legal-changes">
+                        <div class="change-card new">
+                            <div class="change-header">
+                                <i class="fas fa-gavel"></i>
+                                <h4>처벌 범위 확대</h4>
+                                <span class="status-badge new">신설</span>
+                            </div>
+                            <div class="change-content">
+                                <div class="before-after">
+                                    <div class="before">
+                                        <h5>기존</h5>
+                                        <p>소지·시청 처벌 없음</p>
+                                    </div>
+                                    <div class="arrow">→</div>
+                                    <div class="after">
+                                        <h5>강화</h5>
+                                        <p><strong>소지·시청도 처벌</strong><br/>
+                                        3년 이하 징역 또는<br/>
+                                        3천만원 이하 벌금</p>
+                                    </div>
+                                </div>
+                                <div class="legal-note">
+                                    <i class="fas fa-info-circle"></i>
+                                    <span>단순 호기심도 범죄! 보기만 해도 처벌받습니다</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="change-card enhanced">
+                            <div class="change-header">
+                                <i class="fas fa-scale-balanced"></i>
+                                <h4>제작·유포 처벌 강화</h4>
+                                <span class="status-badge enhanced">강화</span>
+                            </div>
+                            <div class="change-content">
+                                <div class="before-after">
+                                    <div class="before">
+                                        <h5>기존</h5>
+                                        <p>5년 이하 징역<br/>
+                                        5천만원 이하 벌금</p>
+                                    </div>
+                                    <div class="arrow">→</div>
+                                    <div class="after">
+                                        <h5>강화</h5>
+                                        <p><strong>7년 이하 징역</strong><br/>
+                                        5천만원 이하 벌금<br/>
+                                        (불법촬영물과 동일)</p>
+                                    </div>
+                                </div>
+                                <div class="legal-note">
+                                    <i class="fas fa-info-circle"></i>
+                                    <span>반포 목적 없어도 처벌 가능</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="change-card special">
+                            <div class="change-header">
+                                <i class="fas fa-child"></i>
+                                <h4>아동·청소년 대상 가중처벌</h4>
+                                <span class="status-badge special">가중</span>
+                            </div>
+                            <div class="change-content">
+                                <div class="punishment-grid">
+                                    <div class="punishment-item">
+                                        <h5>협박</h5>
+                                        <span class="penalty">3년 이하 징역</span>
+                                        <small>(기존 1년에서 강화)</small>
+                                    </div>
+                                    <div class="punishment-item">
+                                        <h5>강요</h5>
+                                        <span class="penalty">5년 이하 징역</span>
+                                        <small>(기존 3년에서 강화)</small>
+                                    </div>
+                                </div>
+                                <div class="legal-note warning">
+                                    <i class="fas fa-exclamation-triangle"></i>
+                                    <span>미성년자 대상 범죄는 더욱 엄중 처벌</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 피해자 지원 시스템 강화 -->
+                <div class="victim-support-system">
+                    <h3>🛡️ 피해자 지원 시스템 전면 강화</h3>
+                    <div class="support-enhancements">
+                        <div class="enhancement-card">
+                            <div class="enhancement-header">
+                                <i class="fas fa-phone-volume"></i>
+                                <h4>1366 통합 신고 체계</h4>
+                                <span class="status-badge integrated">통합</span>
+                            </div>
+                            <div class="enhancement-content">
+                                <div class="contact-unified">
+                                    <div class="unified-number">
+                                        <span class="number">1366</span>
+                                        <p>디지털성범죄피해자지원센터<br/>통합 신고 전화</p>
+                                    </div>
+                                    <div class="support-features">
+                                        <div class="feature-item">
+                                            <i class="fas fa-clock"></i>
+                                            <span>24시간 상담</span>
+                                        </div>
+                                        <div class="feature-item">
+                                            <i class="fas fa-trash"></i>
+                                            <span>즉시 삭제 지원</span>
+                                        </div>
+                                        <div class="feature-item">
+                                            <i class="fas fa-balance-scale"></i>
+                                            <span>법률 지원</span>
+                                        </div>
+                                        <div class="feature-item">
+                                            <i class="fas fa-heart"></i>
+                                            <span>심리 상담</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="integration-benefit">
+                                    <strong>개선 효과:</strong> 전국 17개 기관 신고번호를 1366으로 일원화하여 신고 편의성 대폭 향상
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="enhancement-card">
+                            <div class="enhancement-header">
+                                <i class="fas fa-stopwatch"></i>
+                                <h4>24시간 삭제 의무화</h4>
+                                <span class="status-badge mandatory">의무</span>
+                            </div>
+                            <div class="enhancement-content">
+                                <div class="deletion-process">
+                                    <div class="process-step">
+                                        <div class="step-icon">1</div>
+                                        <div class="step-info">
+                                            <h5>선차단 후심의</h5>
+                                            <p>의심 콘텐츠 즉시 차단 → 방심위 사후 심의</p>
+                                        </div>
+                                    </div>
+                                    <div class="process-step">
+                                        <div class="step-icon">2</div>
+                                        <div class="step-info">
+                                            <h5>24시간 시한</h5>
+                                            <p>플랫폼 사업자 24시간 내 삭제 의무</p>
+                                        </div>
+                                    </div>
+                                    <div class="process-step">
+                                        <div class="step-icon">3</div>
+                                        <div class="step-info">
+                                            <h5>자동화 시스템</h5>
+                                            <p>AI 탐지 → 자동 삭제 요청 → 결과 모니터링</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="deletion-benefit">
+                                    <strong>개선 효과:</strong> 기존 수동 처리에서 자동화로 전환하여 삭제 속도 획기적 단축
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="enhancement-card">
+                            <div class="enhancement-header">
+                                <i class="fas fa-expand-arrows-alt"></i>
+                                <h4>삭제 지원 범위 확대</h4>
+                                <span class="status-badge expanded">확대</span>
+                            </div>
+                            <div class="enhancement-content">
+                                <div class="expansion-grid">
+                                    <div class="expansion-item">
+                                        <h5>대상 확대</h5>
+                                        <ul>
+                                            <li>기존: 불법 영상물만</li>
+                                            <li><strong>추가:</strong> 피해자 신상정보까지 삭제</li>
+                                            <li><strong>추가:</strong> 관련 댓글, 게시글</li>
+                                        </ul>
+                                    </div>
+                                    <div class="expansion-item">
+                                        <h5>주체 확대</h5>
+                                        <ul>
+                                            <li>기존: 국가만</li>
+                                            <li><strong>추가:</strong> 지자체도 삭제 지원</li>
+                                            <li><strong>추가:</strong> 민간 지원기관 연계</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 플랫폼 책임성 강화 -->
+                <div class="platform-responsibility">
+                    <h3>📱 플랫폼 책임성 대폭 강화</h3>
+                    <div class="platform-measures">
+                        <div class="measure-card successful">
+                            <div class="measure-header">
+                                <i class="fas fa-paper-plane"></i>
+                                <h4>텔레그램 핫라인 구축</h4>
+                                <span class="status-badge successful">성공</span>
+                            </div>
+                            <div class="measure-content">
+                                <div class="achievement-stats">
+                                    <div class="stat">
+                                        <span class="stat-number">177건</span>
+                                        <span class="stat-desc">삭제 완료 (2024년 9월까지)</span>
+                                    </div>
+                                    <div class="stat">
+                                        <span class="stat-number">월 2회</span>
+                                        <span class="stat-desc">실무협의 정례화</span>
+                                    </div>
+                                </div>
+                                <div class="cooperation-details">
+                                    <h5>협력 성과</h5>
+                                    <ul>
+                                        <li>방심위-텔레그램 직통 핫라인 개설</li>
+                                        <li>삭제 요청에 적극 수용 자세</li>
+                                        <li>추가 핫라인 설치로 대응력 강화</li>
+                                        <li>수사기관과 소통채널 구축</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="measure-card ongoing">
+                            <div class="measure-header">
+                                <i class="fas fa-file-contract"></i>
+                                <h4>플랫폼 의무 강화</h4>
+                                <span class="status-badge ongoing">진행중</span>
+                            </div>
+                            <div class="measure-content">
+                                <div class="obligation-list">
+                                    <div class="obligation-item">
+                                        <h5>투명성 보고서 내실화</h5>
+                                        <p>부실·허위 제출 시 과태료 부과</p>
+                                    </div>
+                                    <div class="obligation-item">
+                                        <h5>게재자 제재 의무화</h5>
+                                        <p>성범죄물 게재자 서비스 이용 중단, 탈퇴 처분</p>
+                                    </div>
+                                    <div class="obligation-item">
+                                        <h5>청소년보호책임자 지정</h5>
+                                        <p>해외 플랫폼도 국내대리인 지정 의무</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="response-guide-enhanced">
+                    <div class="guide-intro">
+                        <div class="intro-content">
+                            <h3><i class="fas fa-shield-alt"></i> 상황별 대응 가이드</h3>
+                            <p>딥페이크 범죄 발견 시 신속하고 체계적인 대응이 피해를 최소화하는 핵심입니다.</p>
+                        </div>
+                        <div class="emergency-hotline">
+                            <div class="hotline-item">
+                                <i class="fas fa-phone-alt"></i>
+                                <span>긴급신고</span>
+                                <strong>112</strong>
+                            </div>
+                            <div class="hotline-item">
+                                <i class="fas fa-laptop"></i>
+                                <span>사이버수사대</span>
+                                <strong>182</strong>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 시나리오 탭 네비게이션 -->
+                    <div class="scenario-tab-nav">
+                        <button class="scenario-tab active" data-scenario="personal">
+                            <i class="fas fa-user"></i>
+                            개인 피해자
+                        </button>
+                        <button class="scenario-tab" data-scenario="corporate">
+                            <i class="fas fa-building"></i>
+                            기업/기관
+                        </button>
+                        <button class="scenario-tab" data-scenario="witness">
+                            <i class="fas fa-eye"></i>
+                            목격자/신고자
+                        </button>
+                        <button class="scenario-tab" data-scenario="support">
+                            <i class="fas fa-heart"></i>
+                            후속 지원
+                        </button>
+                    </div>
+
+                    <!-- 시나리오 콘텐츠 -->
+                    <div class="scenario-content">
+                        <!-- 개인 피해자 시나리오 -->
+                        <div class="scenario-panel active" id="personal-scenario">
+                            <div class="scenario-header">
+                                <div class="header-badge critical">
+                                    <i class="fas fa-exclamation-triangle"></i>
+                                    긴급 대응 필요
+                                </div>
+                                <h4>개인 딥페이크 피해 발생 시 대응법</h4>
+                            </div>
+
+                            <div class="response-steps">
+                                <div class="step-group">
+                                    <div class="group-header">
+                                        <div class="time-badge">즉시 (0-30분)</div>
+                                        <h5><i class="fas fa-bolt"></i> 긴급 초기 대응</h5>
+                                    </div>
+                                    <div class="steps-list">
+                                        <div class="response-step">
+                                            <div class="step-icon">
+                                                <i class="fas fa-save"></i>
+                                            </div>
+                                            <div class="step-content">
+                                                <h6>증거 수집 및 보존</h6>
+                                                <p>딥페이크 콘텐츠의 스크린샷, URL, 게시자 정보를 즉시 저장하세요.</p>
+                                                <div class="step-tips">
+                                                    <span class="tip">전체 화면 캡처</span>
+                                                    <span class="tip">메타데이터 보존</span>
+                                                    <span class="tip">타임스탬프 기록</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="response-step">
+                                            <div class="step-icon">
+                                                <i class="fas fa-phone"></i>
+                                            </div>
+                                            <div class="step-content">
+                                                <h6>긴급신고</h6>
+                                                <p>경찰서 또는 사이버수사대에 즉시 신고하여 확산을 방지하세요.</p>
+                                                <div class="step-tips">
+                                                    <span class="tip">112 또는 182</span>
+                                                    <span class="tip">상세 상황 설명</span>
+                                                    <span class="tip">증거 자료 제출</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="response-step">
+                                            <div class="step-icon">
+                                                <i class="fas fa-flag"></i>
+                                            </div>
+                                            <div class="step-content">
+                                                <h6>플랫폼 신고</h6>
+                                                <p>해당 SNS나 웹사이트의 신고 기능을 통해 콘텐츠 삭제를 요청하세요.</p>
+                                                <div class="step-tips">
+                                                    <span class="tip">신고 접수번호 기록</span>
+                                                    <span class="tip">여러 플랫폼 동시 신고</span>
+                                                    <span class="tip">신고 결과 추적</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="step-group">
+                                    <div class="group-header">
+                                        <div class="time-badge">단기 (1-7일)</div>
+                                        <h5><i class="fas fa-shield-alt"></i> 피해 확산 방지</h5>
+                                    </div>
+                                    <div class="steps-list">
+                                        <div class="response-step">
+                                            <div class="step-icon">
+                                                <i class="fas fa-search"></i>
+                                            </div>
+                                            <div class="step-content">
+                                                <h6>추가 피해 모니터링</h6>
+                                                <p>본인 이름과 이미지로 검색하여 추가 딥페이크 콘텐츠를 찾아내세요.</p>
+                                                <div class="step-tips">
+                                                    <span class="tip">구글 이미지 검색</span>
+                                                    <span class="tip">소셜미디어 모니터링</span>
+                                                    <span class="tip">정기적 확인</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="response-step">
+                                            <div class="step-icon">
+                                                <i class="fas fa-gavel"></i>
+                                            </div>
+                                            <div class="step-content">
+                                                <h6>법적 조치 준비</h6>
+                                                <p>변호사와 상담하여 민사소송이나 형사고발을 준비하세요.</p>
+                                                <div class="step-tips">
+                                                    <span class="tip">법무법인 상담</span>
+                                                    <span class="tip">손해 산정</span>
+                                                    <span class="tip">소송 비용 검토</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="response-step">
+                                            <div class="step-icon">
+                                                <i class="fas fa-users"></i>
+                                            </div>
+                                            <div class="step-content">
+                                                <h6>주변 알림</h6>
+                                                <p>가족, 친구, 직장 동료에게 상황을 알려 2차 피해를 예방하세요.</p>
+                                                <div class="step-tips">
+                                                    <span class="tip">신뢰할 만한 사람 우선</span>
+                                                    <span class="tip">사실 관계 명확히</span>
+                                                    <span class="tip">추가 확산 방지 협조</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="step-group">
+                                    <div class="group-header">
+                                        <div class="time-badge">장기 (1주-6개월)</div>
+                                        <h5><i class="fas fa-heart"></i> 회복 및 재발 방지</h5>
+                                    </div>
+                                    <div class="steps-list">
+                                        <div class="response-step">
+                                            <div class="step-icon">
+                                                <i class="fas fa-user-md"></i>
+                                            </div>
+                                            <div class="step-content">
+                                                <h6>심리 상담</h6>
+                                                <p>전문 상담사의 도움을 받아 트라우마를 극복하고 정신 건강을 회복하세요.</p>
+                                                <div class="step-tips">
+                                                    <span class="tip">전문 상담센터</span>
+                                                    <span class="tip">지속적 관리</span>
+                                                    <span class="tip">가족 상담</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="response-step">
+                                            <div class="step-icon">
+                                                <i class="fas fa-lock"></i>
+                                            </div>
+                                            <div class="step-content">
+                                                <h6>개인정보 보안 강화</h6>
+                                                <p>SNS 설정을 변경하고 개인정보 노출을 최소화하여 재발을 방지하세요.</p>
+                                                <div class="step-tips">
+                                                    <span class="tip">프라이버시 설정</span>
+                                                    <span class="tip">사진 업로드 제한</span>
+                                                    <span class="tip">계정 보안 강화</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 기업/기관 시나리오 -->
+                        <div class="scenario-panel" id="corporate-scenario">
+                            <div class="scenario-header">
+                                <div class="header-badge warning">
+                                    <i class="fas fa-building"></i>
+                                    조직적 대응
+                                </div>
+                                <h4>기업/기관 딥페이크 피해 대응 프로토콜</h4>
+                            </div>
+
+                            <div class="corporate-flow">
+                                <div class="flow-timeline">
+                                    <div class="timeline-step">
+                                        <div class="timeline-marker">1</div>
+                                        <div class="timeline-content">
+                                            <h6><i class="fas fa-exclamation-triangle"></i> 사건 인지 및 초기 대응 (0-2시간)</h6>
+                                            <div class="action-list">
+                                                <div class="action-item">
+                                                    <i class="fas fa-bell"></i>
+                                                    딥페이크 콘텐츠 발견 시 즉시 보고 체계 가동
+                                                </div>
+                                                <div class="action-item">
+                                                    <i class="fas fa-camera"></i>
+                                                    증거 수집 및 디지털 포렌식 팀 투입
+                                                </div>
+                                                <div class="action-item">
+                                                    <i class="fas fa-phone"></i>
+                                                    법무팀 및 PR팀에 긴급 상황 전파
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="timeline-step">
+                                        <div class="timeline-marker">2</div>
+                                        <div class="timeline-content">
+                                            <h6><i class="fas fa-shield-alt"></i> 위기 대응팀 구성 (2-6시간)</h6>
+                                            <div class="action-list">
+                                                <div class="action-item">
+                                                    <i class="fas fa-users"></i>
+                                                    CEO, 법무, PR, IT보안팀으로 TF 구성
+                                                </div>
+                                                <div class="action-item">
+                                                    <i class="fas fa-clipboard-list"></i>
+                                                    피해 범위 및 영향도 분석
+                                                </div>
+                                                <div class="action-item">
+                                                    <i class="fas fa-chart-line"></i>
+                                                    대응 전략 수립 및 우선순위 결정
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="timeline-step">
+                                        <div class="timeline-marker">3</div>
+                                        <div class="timeline-content">
+                                            <h6><i class="fas fa-broadcast-tower"></i> 대외 커뮤니케이션 (6-24시간)</h6>
+                                            <div class="action-list">
+                                                <div class="action-item">
+                                                    <i class="fas fa-file-alt"></i>
+                                                    공식 입장문 작성 및 배포
+                                                </div>
+                                                <div class="action-item">
+                                                    <i class="fas fa-newspaper"></i>
+                                                    언론 브리핑 및 팩트체크 협조
+                                                </div>
+                                                <div class="action-item">
+                                                    <i class="fas fa-comments"></i>
+                                                    소셜미디어를 통한 투명한 소통
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="timeline-step">
+                                        <div class="timeline-marker">4</div>
+                                        <div class="timeline-content">
+                                            <h6><i class="fas fa-search"></i> 법적 조치 및 추적 (1-4주)</h6>
+                                            <div class="action-list">
+                                                <div class="action-item">
+                                                    <i class="fas fa-balance-scale"></i>
+                                                    형사고발 및 민사소송 준비
+                                                </div>
+                                                <div class="action-item">
+                                                    <i class="fas fa-user-secret"></i>
+                                                    사이버 포렌식을 통한 가해자 추적
+                                                </div>
+                                                <div class="action-item">
+                                                    <i class="fas fa-globe"></i>
+                                                    국제적 협력 및 공조 수사 요청
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="timeline-step">
+                                        <div class="timeline-marker">5</div>
+                                        <div class="timeline-content">
+                                            <h6><i class="fas fa-cog"></i> 시스템 개선 (1-6개월)</h6>
+                                            <div class="action-list">
+                                                <div class="action-item">
+                                                    <i class="fas fa-robot"></i>
+                                                    AI 기반 딥페이크 탐지 시스템 도입
+                                                </div>
+                                                <div class="action-item">
+                                                    <i class="fas fa-graduation-cap"></i>
+                                                    임직원 대상 보안 교육 강화
+                                                </div>
+                                                <div class="action-item">
+                                                    <i class="fas fa-book"></i>
+                                                    딥페이크 대응 매뉴얼 업데이트
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 목격자/신고자 시나리오 -->
+                        <div class="scenario-panel" id="witness-scenario">
+                            <div class="scenario-header">
+                                <div class="header-badge info">
+                                    <i class="fas fa-eye"></i>
+                                    시민 참여
+                                </div>
+                                <h4>딥페이크 발견 시 올바른 신고 방법</h4>
+                            </div>
+
+                            <div class="witness-guide">
+                                <div class="guide-section">
+                                    <div class="section-header positive">
+                                        <i class="fas fa-check-circle"></i>
+                                        <h5>해야 할 일</h5>
+                                    </div>
+                                    <div class="guide-items">
+                                        <div class="guide-item">
+                                            <div class="item-icon positive">
+                                                <i class="fas fa-camera"></i>
+                                            </div>
+                                            <div class="item-content">
+                                                <h6>증거 수집</h6>
+                                                <p>스크린샷과 URL을 저장하여 신고 시 제출</p>
+                                            </div>
+                                        </div>
+                                        <div class="guide-item">
+                                            <div class="item-icon positive">
+                                                <i class="fas fa-phone-alt"></i>
+                                            </div>
+                                            <div class="item-content">
+                                                <h6>신속한 신고</h6>
+                                                <p>112 또는 182에 즉시 신고하여 확산 방지</p>
+                                            </div>
+                                        </div>
+                                        <div class="guide-item">
+                                            <div class="item-icon positive">
+                                                <i class="fas fa-user-shield"></i>
+                                            </div>
+                                            <div class="item-content">
+                                                <h6>피해자 보호</h6>
+                                                <p>가능한 경우 피해자에게 상황을 알려 대응 지원</p>
+                                            </div>
+                                        </div>
+                                        <div class="guide-item">
+                                            <div class="item-icon positive">
+                                                <i class="fas fa-flag"></i>
+                                            </div>
+                                            <div class="item-content">
+                                                <h6>플랫폼 신고</h6>
+                                                <p>해당 소셜미디어의 신고 기능 활용</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="guide-section">
+                                    <div class="section-header negative">
+                                        <i class="fas fa-times-circle"></i>
+                                        <h5>하지 말아야 할 일</h5>
+                                    </div>
+                                    <div class="guide-items">
+                                        <div class="guide-item">
+                                            <div class="item-icon negative">
+                                                <i class="fas fa-share"></i>
+                                            </div>
+                                            <div class="item-content">
+                                                <h6>2차 유포 금지</h6>
+                                                <p>딥페이크 콘텐츠를 공유하거나 재전송하지 않기</p>
+                                            </div>
+                                        </div>
+                                        <div class="guide-item">
+                                            <div class="item-icon negative">
+                                                <i class="fas fa-comments"></i>
+                                            </div>
+                                            <div class="item-content">
+                                                <h6>추측성 댓글 자제</h6>
+                                                <p>확인되지 않은 정보로 추측하여 댓글 작성 금지</p>
+                                            </div>
+                                        </div>
+                                        <div class="guide-item">
+                                            <div class="item-icon negative">
+                                                <i class="fas fa-hourglass"></i>
+                                            </div>
+                                            <div class="item-content">
+                                                <h6>신고 지연 금지</h6>
+                                                <p>"누군가 신고했겠지" 하며 신고를 미루지 않기</p>
+                                            </div>
+                                        </div>
+                                        <div class="guide-item">
+                                            <div class="item-icon negative">
+                                                <i class="fas fa-user-times"></i>
+                                            </div>
+                                            <div class="item-content">
+                                                <h6>피해자 비난 금지</h6>
+                                                <p>피해자를 책망하거나 2차 가해하지 않기</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 후속 지원 시나리오 -->
+                        <div class="scenario-panel" id="support-scenario">
+                            <div class="scenario-header">
+                                <div class="header-badge info">
+                                    <i class="fas fa-heart"></i>
+                                    지속적 지원
+                                </div>
+                                <h4>딥페이크 피해자 지원 및 상담 서비스</h4>
+                            </div>
+
+                            <div class="support-grid">
+                                <div class="support-item">
+                                    <div class="support-icon">
+                                        <i class="fas fa-phone"></i>
+                                    </div>
+                                    <div class="support-info">
+                                        <h6>디지털성범죄피해자지원센터</h6>
+                                        <p class="contact-number">02-735-8994</p>
+                                        <p class="service-desc">24시간 상담, 법률지원, 디지털 증거수집 지원</p>
+                                    </div>
+                                </div>
+
+                                <div class="support-item">
+                                    <div class="support-icon">
+                                        <i class="fas fa-balance-scale"></i>
+                                    </div>
+                                    <div class="support-info">
+                                        <h6>대한법률구조공단</h6>
+                                        <p class="contact-number">132</p>
+                                        <p class="service-desc">무료 법률상담, 소송 지원, 변호사 연결</p>
+                                    </div>
+                                </div>
+
+                                <div class="support-item">
+                                    <div class="support-icon">
+                                        <i class="fas fa-user-md"></i>
+                                    </div>
+                                    <div class="support-info">
+                                        <h6>정신건강위기상담전화</h6>
+                                        <p class="contact-number">1577-0199</p>
+                                        <p class="service-desc">트라우마 상담, 심리치료 연결, 정신건강 지원</p>
+                                    </div>
+                                </div>
+
+                                <div class="support-item">
+                                    <div class="support-icon">
+                                        <i class="fas fa-shield-alt"></i>
+                                    </div>
+                                    <div class="support-info">
+                                        <h6>경찰청 사이버수사대</h6>
+                                        <p class="contact-number">182</p>
+                                        <p class="service-desc">신고 접수, 수사 진행, 가해자 추적 수사</p>
+                                    </div>
+                                </div>
+
+                                <div class="support-item">
+                                    <div class="support-icon">
+                                        <i class="fas fa-hands-helping"></i>
+                                    </div>
+                                    <div class="support-info">
+                                        <h6>여성긴급전화</h6>
+                                        <p class="contact-number">1366</p>
+                                        <p class="service-desc">여성 대상 범죄 상담, 긴급보호, 법률지원</p>
+                                    </div>
+                                </div>
+
+                                <div class="support-item">
+                                    <div class="support-icon">
+                                        <i class="fas fa-graduation-cap"></i>
+                                    </div>
+                                    <div class="support-info">
+                                        <h6>청소년사이버상담센터</h6>
+                                        <p class="contact-number">1388</p>
+                                        <p class="service-desc">청소년 전용 상담, 학교 연계 지원, 부모 상담</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="step-group">
+                                <div class="group-header">
+                                    <div class="time-badge">지속적 지원</div>
+                                    <h5><i class="fas fa-heart"></i> 회복 지원 프로그램</h5>
+                                </div>
+                                <div class="steps-list">
+                                    <div class="response-step">
+                                        <div class="step-icon">
+                                            <i class="fas fa-users"></i>
+                                        </div>
+                                        <div class="step-content">
+                                            <h6>피해자 자조 모임</h6>
+                                            <p>비슷한 경험을 한 피해자들과의 교류를 통해 심리적 치유를 도모합니다.</p>
+                                            <div class="step-tips">
+                                                <span class="tip">정기 모임 참여</span>
+                                                <span class="tip">경험 공유</span>
+                                                <span class="tip">상호 지지</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="response-step">
+                                        <div class="step-icon">
+                                            <i class="fas fa-book"></i>
+                                        </div>
+                                        <div class="step-content">
+                                            <h6>디지털 리터러시 교육</h6>
+                                            <p>디지털 보안 및 개인정보 보호 방법을 교육하여 재발을 방지합니다.</p>
+                                            <div class="step-tips">
+                                                <span class="tip">보안 교육</span>
+                                                <span class="tip">프라이버시 설정</span>
+                                                <span class="tip">예방법 습득</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="response-step">
+                                        <div class="step-icon">
+                                            <i class="fas fa-briefcase"></i>
+                                        </div>
+                                        <div class="step-content">
+                                            <h6>사회복귀 지원</h6>
+                                            <p>직장이나 학교 복귀를 위한 상담 및 환경 조성을 지원합니다.</p>
+                                            <div class="step-tips">
+                                                <span class="tip">복직 상담</span>
+                                                <span class="tip">환경 개선</span>
+                                                <span class="tip">지속적 모니터링</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 레슨 요약 -->
+        <section class="section alt-bg">
+            <div class="container">
+                <div class="lesson-summary">
+                    <h3>레슨 2 요약</h3>
+                    <div class="summary-box">
+                        <h4>핵심 내용</h4>
+                        <ul>
+                            <li>딥페이크는 GANs 기술을 통해 매우 정교한 가짜 콘텐츠를 생성합니다.</li>
+                            <li><strong>딥페이크 성범죄가 급증</strong>하고 있습니다. (2024년 518% 증가)</li>
+                            <li>시각적, 청각적, 맥락적 관찰을 통해 딥페이크를 식별할 수 있습니다.</li>
+                            <li>AI 기반 탐지 도구와 개인 검증 방법을 함께 활용해야 합니다.</li>
+                            <li><strong>2024년 9월 법적 처벌이 대폭 강화</strong>되었습니다. (소지·시청도 처벌)</li>
+                            <li><strong>1366 통합 신고</strong>로 피해자 지원이 강화되었습니다.</li>
+                            <li>피해 발생 시 즉시 신고하고 증거를 보존하는 것이 중요합니다.</li>
+                            <li>개인정보 보호와 디지털 보안이 예방의 핵심입니다.</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="summary-alert">
+                        <div class="alert-content">
+                            <i class="fas fa-exclamation-triangle"></i>
+                            <h4>중요한 변화</h4>
+                            <p><strong>딥페이크 성범죄 처벌 강화:</strong> 단순 시청도 3년 이하 징역 또는 3천만원 이하 벌금</p>
+                            <p><strong>피해자 지원 강화:</strong> 1366으로 통합 신고, 24시간 삭제 의무화</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 네비게이션 -->
+        <section class="lesson-navigation">
+            <div class="container">
+                <div class="nav-buttons">
+                    <a href="lesson1.html" class="nav-btn prev">
+                        <i class="fas fa-arrow-left"></i>
+                        레슨 1: AI 디지털 범죄의 이해
+                    </a>
+                    <a href="lesson3.html" class="nav-btn next">
+                        레슨 3: 딥보이스와 보이스피싱
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+                <div class="progress-bar">
+                    <div class="progress" style="width: 50%"></div>
+                </div>
+                <p class="progress-text">진행률: 2/4 (50%)</p>
+            </div>
+        </section>
+    </main>
+
+    <!-- 푸터 -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>긴급 연락처</h4>
+                    <ul>
+                        <li>112 - 경찰신고</li>
+                        <li>182 - 사이버수사대</li>
+                        <li>1332 - 금융감독원</li>
+                        <li>1399 - 스팸신고</li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>디지털 범죄 대응 서비스</h4>
+                    <ul>
+                        <li><a href="https://ecrm.police.go.kr/minwon/main" target="_blank" rel="noopener noreferrer">사이버범죄 신고시스템(경찰청)</a></li>
+                        <li><a href="https://www.kisa.or.kr/801" target="_blank" rel="noopener noreferrer">디지털위협대응본부(KISA)</a></li>
+                        <li><a href="https://www.fss.or.kr/fss/main/sub1voice.do?menuNo=200012" target="_blank" rel="noopener noreferrer">보이스피싱지킴이(금융감독원)</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>추가 정보</h4>
+                    <ul>
+                        <li><a href="https://www.data.go.kr/data/15063815/fileData.do?utm_source=chatgpt.com" target="_blank" rel="noopener noreferrer">보이스피싱 현황 통계(공공데이터터)</a></li>
+                        <li><a href="https://www.yes24.com/Product/Goods/123648853" target="_blank" rel="noopener noreferrer">디지털범죄 예방 교육의 정석(도서)</a></li>
+                        <li><a href="https://www.kisa.or.kr/20301/form?postSeq=29&lang_type=KO" target="_blank" rel="noopener noreferrer">국내·외 피싱 대응 현황 및 시사점(KISA)</a></li>
+                        <li><a href="https://www.mogef.go.kr/nw/rpd/nw_rpd_s001d.do?mid=news405&bbtSn=710244" target="_blank" rel="noopener noreferrer">딥페이크 성범죄 대응 강화방안(여가부)</a></li>
+                        
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 AI 디지털 범죄 예방 교육. 안전한 디지털 세상을 위해.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html> 
