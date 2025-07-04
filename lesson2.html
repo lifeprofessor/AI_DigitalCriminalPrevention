@@ -86,11 +86,15 @@
                 
                 <div class="definition-box">
                     <h3>딥페이크란?</h3>
-                    <p>딥페이크는 '딥러닝(Deep Learning)'과 '가짜(Fake)'의 합성어로, AI와 머신러닝 기술을 사용하여 조작되거나 생성된 오디오, 비디오, 이미지를 포함하는 매우 사실적인 디지털 창작물입니다.</p>
+                    <p>딥페이크는 <strong>'딥러닝(Deep Learning)'</strong>과 <strong>'가짜(Fake)'</strong>의 합성어로, AI와 머신러닝 기술을 사용하여 조작되거나 생성된 오디오, 비디오, 이미지를 포함하는 매우 사실적인 디지털 창작물입니다.</p>
                 </div>
 
                 <div class="crime-evolution">
-                    <h3>핵심 기술: 생성적 적대 신경망 (GANs)</h3>
+                    <h3>🎭 핵심 기술: 생성적 적대 신경망 <br/>(GANs, Generative Adversarial Networks)</h3>
+                    <div class="lesson-figure">
+                        <img src="images/IMG_20250705005040046.png" alt="GAN 구조 다이어그램" class="lesson-img" style="max-width: 1000px;">
+                        <div class="lesson-figcaption">Generator와 Discriminator의 경쟁 구조 시각화</div>
+                    </div>
                     <div class="evolution-grid">
                         <div class="evolution-item">
                             <div class="before">
@@ -117,6 +121,105 @@
                     <div class="definition-box">
                         <h4>결과</h4>
                         <p>두 네트워크가 서로 경쟁하며 발전하여, 점점 더 정교하고 탐지하기 어려운 딥페이크가 생성됩니다.</p>
+                    </div>
+
+                    <div class="practical-example">
+                        <h3>🔍 실습: 진짜 vs 가짜 구별하기</h3>
+                        <div class="example-intro">
+                            <p>아래 4장의 사진 중 <strong>일부는 실제 사람이고, 일부는 AI가 생성한 가짜 얼굴</strong>입니다. 눈을 크게 뜨고 집중해서 어떤 것이 진짜이고 어떤 것이 가짜인지 추측해보세요.</p>
+                        </div>
+                        
+                        <div class="lesson-figure">
+                            <img src="images/IMG_20250705013906261.png" alt="진짜 가짜 비교 실습" class="lesson-img" style="max-width: 1000px;">
+                            <div class="lesson-figcaption">4명의 인물 사진 - 진짜와 AI 생성 이미지가 섞여있습니다</div>
+                        </div>
+                        
+                        <div class="analysis-guide">
+                            <h4>📋 체크포인트</h4>
+                            <div class="checkpoint-grid">
+                                <div class="checkpoint-item">
+                                    <i class="fas fa-eye"></i>
+                                    <span>눈의 대칭성과 깜빡임 흔적</span>
+                                </div>
+                                <div class="checkpoint-item">
+                                    <i class="fas fa-user-circle"></i>
+                                    <span>얼굴 경계선의 자연스러움</span>
+                                </div>
+                                <div class="checkpoint-item">
+                                    <i class="fas fa-sun"></i>
+                                    <span>조명과 그림자의 일관성</span>
+                                </div>
+                                <div class="checkpoint-item">
+                                    <i class="fas fa-puzzle-piece"></i>
+                                    <span>배경과 얼굴의 해상도 차이</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="reveal-answer">
+                            <details>
+                                <summary>🎯 정답 확인하기</summary>
+                                <div class="answer-content">
+                                    <div class="answer-grid">
+                                        <div class="answer-item fake">
+                                            <div class="person-number">1번 (왼쪽 위)</div>
+                                            <div class="result-badge fake">AI 생성</div>
+                                            <p>과도하게 완벽한 피부 톤과 부자연스러운 조명</p>
+                                        </div>
+                                        <div class="answer-item real">
+                                            <div class="person-number">2번 (오른쪽 위)</div>
+                                            <div class="result-badge real">진짜</div>
+                                            <p>자연스러운 피부 질감과 표정의 미세한 변화</p>
+                                        </div>
+                                        <div class="answer-item real">
+                                            <div class="person-number">3번 (왼쪽 아래)</div>
+                                            <div class="result-badge real">진짜</div>
+                                            <p>자연스러운 주름과 피부 질감, 현실적인 조명</p>
+                                        </div>
+                                        <div class="answer-item fake">
+                                            <div class="person-number">4번 (오른쪽 아래)</div>
+                                            <div class="result-badge fake">AI 생성</div>
+                                            <p>안경과 얼굴의 경계가 부자연스럽고 과도하게 선명함</p>
+                                        </div>
+                                    </div>
+                                    <div class="learning-note">
+                                        <i class="fas fa-lightbulb"></i>
+                                        <strong>학습 포인트:</strong> AI 생성 이미지는 종종 과도하게 완벽하거나 부자연스러운 특징을 보입니다. 실제 사진은 작은 불완전함이나 자연스러운 변화가 있습니다.
+                                    </div>
+                                </div>
+                            </details>
+                        </div>
+                    </div>                    
+                    
+                    <div class="reference-box">
+                        <h4><i class="fas fa-link"></i> 실제 GAN 기술 체험</h4>
+                        <div class="reference-item">
+                            <div class="reference-icon">
+                                <i class="fas fa-user-circle"></i>
+                            </div>
+                            <div class="reference-content">
+                                <h5>This Person Does Not Exist</h5>
+                                <p>GAN 기술로 생성된 실제로 존재하지 않는 사람의 얼굴을 확인할 수 있는 사이트입니다. 페이지를 새로고침할 때마다 AI가 새로운 가짜 얼굴을 생성합니다.</p>
+                                <a href="https://thispersondoesnotexist.com/" target="_blank" rel="noopener noreferrer" class="reference-link">
+                                    <i class="fas fa-external-link-alt"></i>
+                                    thispersondoesnotexist.com 방문하기
+                                </a>
+
+                                <a href="https://drive.google.com/drive/folders/1tZUcXDBeOibC6jcMCtgRRz67pzrAHeHL" target="_blank" rel="noopener noreferrer" class="reference-link">
+                                    <i class="fas fa-external-link-alt"></i>
+                                    딥페이크 모델 학습용 원본 사진 보러가기
+                                </a>
+
+                                <a href="https://arxiv.org/pdf/1812.04948" target="_blank" rel="noopener noreferrer" class="reference-link">
+                                    <i class="fas fa-external-link-alt"></i>
+                                    딥페이크 모델 StyleGAN 논문 보러가기
+                                </a>
+                                <div class="reference-note">
+                                    <i class="fas fa-info-circle"></i>
+                                    <span>이 사이트의 모든 얼굴은 AI가 생성한 것으로 실제 사람이 아닙니다.</span>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <br/>
@@ -2424,6 +2527,8 @@
                 <p class="progress-text">진행률: 2/4 (50%)</p>
             </div>
         </section>
+
+        
     </main>
 
     <!-- 푸터 -->

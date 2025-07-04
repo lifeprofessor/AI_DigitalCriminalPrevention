@@ -6077,3 +6077,148 @@ main {
         font-size: 1.1rem;
     }
 }
+
+/* 설명용 이미지(다이어그램, 인포그래픽 등) 공통 스타일 */
+.lesson-figure {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 2.5rem 0;
+    gap: 0.7rem;
+}
+
+.lesson-figure img,
+.lesson-img {
+    max-width: 420px;
+    width: 100%;
+    height: auto;
+    border-radius: 16px;
+    box-shadow: 0 4px 24px rgba(60,60,100,0.10), 0 1.5px 6px rgba(0,0,0,0.06);
+    background: #fff;
+    border: 1px solid #e5e7eb;
+    transition: box-shadow 0.2s;
+}
+
+.lesson-figure img:hover,
+.lesson-img:hover {
+    box-shadow: 0 8px 32px rgba(60,60,100,0.18), 0 3px 12px rgba(0,0,0,0.10);
+}
+
+.lesson-figcaption,
+.lesson-caption {
+    font-size: 1rem;
+    color: #666;
+    margin-top: 0.5rem;
+    text-align: center;
+    line-height: 1.5;
+    max-width: 420px;
+}
+
+/* 이미지 크기 변형 클래스들 */
+.lesson-img-small {
+    max-width: 280px;
+}
+
+.lesson-img-medium {
+    max-width: 420px;
+}
+
+.lesson-img-large {
+    max-width: 600px;
+}
+
+.lesson-img-full {
+    max-width: 100%;
+}
+
+/* 이미지 정렬 클래스들 */
+.lesson-figure-left {
+    align-items: flex-start;
+    text-align: left;
+}
+
+.lesson-figure-right {
+    align-items: flex-end;
+    text-align: right;
+}
+
+.lesson-figure-center {
+    align-items: center;
+    text-align: center;
+}
+
+/* 특별한 효과 클래스들 */
+.lesson-img-highlight {
+    border: 3px solid #667eea;
+    box-shadow: 0 4px 24px rgba(102, 126, 234, 0.2), 0 1.5px 6px rgba(0,0,0,0.06);
+}
+
+.lesson-img-highlight:hover {
+    box-shadow: 0 8px 32px rgba(102, 126, 234, 0.3), 0 3px 12px rgba(0,0,0,0.10);
+}
+
+.lesson-img-rounded {
+    border-radius: 50%;
+}
+
+.lesson-img-shadow-heavy {
+    box-shadow: 0 12px 40px rgba(0,0,0,0.15), 0 4px 16px rgba(0,0,0,0.08);
+}
+
+.lesson-img-shadow-heavy:hover {
+    box-shadow: 0 20px 60px rgba(0,0,0,0.25), 0 8px 24px rgba(0,0,0,0.12);
+}
+
+/* 반응형 디자인 */
+@media (max-width: 600px) {
+    .lesson-figure img,
+    .lesson-img {
+        max-width: 100%;
+        border-radius: 10px;
+    }
+    
+    .lesson-figcaption,
+    .lesson-caption {
+        font-size: 0.95rem;
+        max-width: 100%;
+    }
+    
+    .lesson-img-small,
+    .lesson-img-medium,
+    .lesson-img-large {
+        max-width: 100%;
+    }
+    
+    .lesson-figure-left,
+    .lesson-figure-right {
+        align-items: center;
+        text-align: center;
+    }
+}
+
+/* 이미지 갤러리 스타일 (여러 이미지를 나란히 배치할 때) */
+.lesson-gallery {
+    display: flex;
+    gap: 1rem;
+    margin: 2rem 0;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.lesson-gallery .lesson-figure {
+    margin: 0;
+    flex: 1;
+    min-width: 200px;
+    max-width: 300px;
+}
+
+@media (max-width: 768px) {
+    .lesson-gallery {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .lesson-gallery .lesson-figure {
+        max-width: 100%;
+    }
+}
