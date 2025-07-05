@@ -441,33 +441,137 @@
 
 .checklist-item {
     display: flex;
-    align-items: center;
-    padding: 1rem 0;
-    border-bottom: 1px solid var(--border-color);
+    align-items: flex-start;
+    gap: 15px;
     cursor: pointer;
+    padding: 15px;
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 10px;
     transition: all 0.3s ease;
-}
-
-.checklist-item:last-child {
-    border-bottom: none;
+    color: white;
+    font-weight: 500;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    min-height: 70px; /* 최소 높이 고정 */
+    box-sizing: border-box;
 }
 
 .checklist-item:hover {
-    background: var(--light-bg);
-    padding-left: 1rem;
-    margin: 0 -1rem;
-    border-radius: 6px;
+    background: rgba(255, 255, 255, 0.25);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.checkmark {
+    width: 20px;
+    height: 20px;
+    border: 2px solid rgba(255, 255, 255, 0.8);
+    border-radius: 4px;
+    position: relative;
+    flex-shrink: 0;
+    background: rgba(255, 255, 255, 0.1);
+    margin-top: 2px; /* 텍스트와 정렬 맞추기 */
+}
+
+/* 체크리스트 텍스트 영역 스타일 개선 */
+.checklist-item span:not(.checkmark) {
+    flex: 1;
+    line-height: 1.4;
+    font-size: 0.95rem;
+    word-break: keep-all;
+    overflow-wrap: break-word;
+}
+
+/* 각 컬럼의 항목들 높이 통일 */
+.checklist-items {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    height: 100%;
+}
+
+.checklist-column {
+    display: flex;
+    flex-direction: column;
+    min-height: 300px; /* 컬럼 최소 높이 설정 */
+}
+
+.checklist-column h4 {
+    flex-shrink: 0;
+    font-size: 1.3rem;
+    margin-bottom: 20px;
+    text-align: center;
+    background: rgba(255, 255, 255, 0.2);
+    padding: 15px;
+    border-radius: 10px;
+    color: white;
+    font-weight: 600;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+    height: 60px; /* 제목 높이 고정 */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* 컬럼별 색상 스타일에 높이 관련 속성 추가 */
+.checklist-column:nth-child(1) .checklist-item,
+.checklist-column:nth-child(2) .checklist-item,
+.checklist-column:nth-child(3) .checklist-item {
+    min-height: 70px;
+    display: flex;
+    align-items: flex-start;
+}
+
+.checklist-column:nth-child(1) .checklist-item:hover,
+.checklist-column:nth-child(2) .checklist-item:hover,
+.checklist-column:nth-child(3) .checklist-item:hover {
+    transform: translateY(-2px);
+}
+
+/* 모바일에서는 높이 조정 */
+@media (max-width: 768px) {
+    .checklist-item {
+        min-height: 60px;
+        padding: 12px;
+        font-size: 0.9rem;
+    }
+    
+    .checklist-column {
+        min-height: 250px;
+    }
+    
+    .checklist-column h4 {
+        font-size: 1.1rem;
+        padding: 12px;
+        height: 50px;
+    }
+    
+    .checklist-item span:not(.checkmark) {
+        font-size: 0.85rem;
+        line-height: 1.3;
+    }
+}
+
+@media (max-width: 480px) {
+    .checklist-item {
+        min-height: 55px;
+        padding: 10px;
+    }
+    
+    .checklist-column {
+        min-height: 220px;
+    }
+    
+    .checklist-column h4 {
+        height: 45px;
+        font-size: 1rem;
+    }
 }
 
 .checklist-item input[type="checkbox"] {
     margin-right: 1rem;
     transform: scale(1.2);
     accent-color: var(--secondary-color);
-}
-
-.checklist-item span {
-    color: var(--text-primary);
-    font-size: 1rem;
 }
 
 .checklist-result {
@@ -1403,7 +1507,7 @@
 
 .checklist-item {
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     gap: 15px;
     cursor: pointer;
     padding: 15px;
@@ -1414,6 +1518,8 @@
     font-weight: 500;
     text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
     border: 1px solid rgba(255, 255, 255, 0.1);
+    min-height: 70px; /* 최소 높이 고정 */
+    box-sizing: border-box;
 }
 
 .checklist-item:hover {
@@ -1430,6 +1536,7 @@
     position: relative;
     flex-shrink: 0;
     background: rgba(255, 255, 255, 0.1);
+    margin-top: 2px; /* 텍스트와 정렬 맞추기 */
 }
 
 .checklist-item input[type="checkbox"] {
@@ -3482,8 +3589,8 @@
 .step-icon {
     width: 40px;
     height: 40px;
-    background: #3742fa;
-    color: white;
+    background: #ef5825;
+    color: rgb(255, 255, 255);
     border-radius: 50%;
     display: flex;
     align-items: center;
@@ -3814,6 +3921,27 @@
     text-decoration: none;
 }
 
+.reference-red-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    color: white;
+    padding: 0.75rem 1.5rem;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    margin-bottom: 1rem;
+}
+
+.reference-red-link:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+    color: white;
+    text-decoration: none;
+}
+
 .reference-note {
     display: flex;
     align-items: center;
@@ -4054,5 +4182,213 @@
     
     .practical-example {
         padding: 1.5rem;
+    }
+}
+
+.reference-blue-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: #3498db;
+    text-decoration: none;
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+    padding: 0.5rem 0;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+}
+
+.reference-blue-link:hover {
+    color: #2980b9;
+    background-color: rgba(52, 152, 219, 0.1);
+    padding-left: 0.5rem;
+    transform: translateX(5px);
+}
+
+.reference-red-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: #e74c3c;
+    text-decoration: none;
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+    padding: 0.5rem 0;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+}
+
+.reference-red-link:hover {
+    color: #c0392b;
+    background-color: rgba(231, 76, 60, 0.1);
+    padding-left: 0.5rem;
+    transform: translateX(5px);
+}
+
+/* 체크리스트 컬럼별 색상 구분 */
+.checklist-container {
+    background: linear-gradient(135deg, #4a90e2 0%, #50c878 50%, #9b59b6 100%);
+    border-radius: 20px;
+    padding: 30px;
+    margin-bottom: 40px;
+}
+
+/* 1차 시각 검증 - 파란색 */
+.checklist-column:nth-child(1) {
+    background: linear-gradient(135deg, #4a90e2 0%, #357abd 100%);
+    border-radius: 15px;
+    padding: 25px;
+    border: 2px solid rgba(74, 144, 226, 0.3);
+    box-shadow: 0 8px 25px rgba(74, 144, 226, 0.2);
+}
+
+.checklist-column:nth-child(1) h4 {
+    background: rgba(74, 144, 226, 0.9);
+    color: white;
+    border: 2px solid rgba(74, 144, 226, 0.5);
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.checklist-column:nth-child(1) .checklist-item {
+    background: rgba(74, 144, 226, 0.15);
+    border: 1px solid rgba(74, 144, 226, 0.3);
+}
+
+.checklist-column:nth-child(1) .checklist-item:hover {
+    background: rgba(74, 144, 226, 0.25);
+    border-color: rgba(74, 144, 226, 0.5);
+    box-shadow: 0 4px 15px rgba(74, 144, 226, 0.3);
+}
+
+.checklist-column:nth-child(1) .checkmark {
+    border-color: rgba(74, 144, 226, 0.8);
+    background: rgba(74, 144, 226, 0.1);
+}
+
+.checklist-column:nth-child(1) .checklist-item input[type="checkbox"]:checked + .checkmark {
+    background: #4a90e2;
+    border-color: #4a90e2;
+}
+
+/* 2차 청각 검증 - 녹색 */
+.checklist-column:nth-child(2) {
+    background: linear-gradient(135deg, #50c878 0%, #3ea65c 100%);
+    border-radius: 15px;
+    padding: 25px;
+    border: 2px solid rgba(80, 200, 120, 0.3);
+    box-shadow: 0 8px 25px rgba(80, 200, 120, 0.2);
+}
+
+.checklist-column:nth-child(2) h4 {
+    background: rgba(80, 200, 120, 0.9);
+    color: white;
+    border: 2px solid rgba(80, 200, 120, 0.5);
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.checklist-column:nth-child(2) .checklist-item {
+    background: rgba(80, 200, 120, 0.15);
+    border: 1px solid rgba(80, 200, 120, 0.3);
+}
+
+.checklist-column:nth-child(2) .checklist-item:hover {
+    background: rgba(80, 200, 120, 0.25);
+    border-color: rgba(80, 200, 120, 0.5);
+    box-shadow: 0 4px 15px rgba(80, 200, 120, 0.3);
+}
+
+.checklist-column:nth-child(2) .checkmark {
+    border-color: rgba(80, 200, 120, 0.8);
+    background: rgba(80, 200, 120, 0.1);
+}
+
+.checklist-column:nth-child(2) .checklist-item input[type="checkbox"]:checked + .checkmark {
+    background: #50c878;
+    border-color: #50c878;
+}
+
+/* 3차 맥락 검증 - 보라색 */
+.checklist-column:nth-child(3) {
+    background: linear-gradient(135deg, #9b59b6 0%, #7d3c98 100%);
+    border-radius: 15px;
+    padding: 25px;
+    border: 2px solid rgba(155, 89, 182, 0.3);
+    box-shadow: 0 8px 25px rgba(155, 89, 182, 0.2);
+}
+
+.checklist-column:nth-child(3) h4 {
+    background: rgba(155, 89, 182, 0.9);
+    color: white;
+    border: 2px solid rgba(155, 89, 182, 0.5);
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.checklist-column:nth-child(3) .checklist-item {
+    background: rgba(155, 89, 182, 0.15);
+    border: 1px solid rgba(155, 89, 182, 0.3);
+}
+
+.checklist-column:nth-child(3) .checklist-item:hover {
+    background: rgba(155, 89, 182, 0.25);
+    border-color: rgba(155, 89, 182, 0.5);
+    box-shadow: 0 4px 15px rgba(155, 89, 182, 0.3);
+}
+
+.checklist-column:nth-child(3) .checkmark {
+    border-color: rgba(155, 89, 182, 0.8);
+    background: rgba(155, 89, 182, 0.1);
+}
+
+.checklist-column:nth-child(3) .checklist-item input[type="checkbox"]:checked + .checkmark {
+    background: #9b59b6;
+    border-color: #9b59b6;
+}
+
+/* 체크리스트 컬럼 공통 스타일 강화 */
+.checklist-column {
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.checklist-column::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.5), transparent);
+    animation: shimmer 2s infinite;
+}
+
+@keyframes shimmer {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(100%); }
+}
+
+.checklist-column:hover {
+    transform: translateY(-5px);
+}
+
+/* 모바일 반응형 개선 */
+@media (max-width: 768px) {
+    .checklist-container {
+        padding: 20px;
+    }
+    
+    .checklist-column {
+        padding: 20px;
+        margin-bottom: 20px;
+    }
+    
+    .checklist-column h4 {
+        font-size: 1.1rem;
+        padding: 12px;
+    }
+    
+    .checklist-item {
+        padding: 12px;
+        font-size: 0.9rem;
     }
 } 
