@@ -3113,7 +3113,7 @@
     justify-content: center;
     gap: 0.5rem;
     color: #ff4757;
-    font-weight: 600;
+    font-weight: 800;
 }
 
 .stat-trend i {
@@ -3589,7 +3589,7 @@
 .step-icon {
     width: 40px;
     height: 40px;
-    background: #ef5825;
+    background: #3b41ee;
     color: rgb(255, 255, 255);
     border-radius: 50%;
     display: flex;
@@ -3712,7 +3712,7 @@
 }
 
 .stat-desc {
-    font-size: 0.8rem;
+    font-size: 1.3rem;
     color: #7f8c8d;
 }
 
