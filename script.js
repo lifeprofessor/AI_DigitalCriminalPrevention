@@ -1104,3 +1104,113 @@ window.changeQuestion = changeQuestion;
 window.submitQuiz = submitQuiz;
 window.restartQuiz = restartQuiz;
 window.printPage = printPage; 
+
+// 체크리스트 기능
+document.addEventListener('DOMContentLoaded', function() {
+    const checkboxes = document.querySelectorAll('.checklist-checkbox');
+    const progressFill = document.getElementById('progress-fill');
+    const progressPercentage = document.getElementById('progress-percentage');
+    const progressCount = document.getElementById('progress-count');
+    const checklistResult = document.getElementById('checklist-result');
+    const resultExcellent = document.getElementById('result-excellent');
+    const resultGood = document.getElementById('result-good');
+    const resultImprovement = document.getElementById('result-improvement');
+
+    // 로컬 스토리지에서 체크 상태 로드
+    function loadChecklistState() {
+        checkboxes.forEach(checkbox => {
+            const itemId = checkbox.getAttribute('data-item');
+            const isChecked = localStorage.getItem(`checklist-${itemId}`) === 'true';
+            checkbox.checked = isChecked;
+        });
+        updateProgress();
+    }
+
+    // 로컬 스토리지에 체크 상태 저장
+    function saveChecklistState(itemId, isChecked) {
+        localStorage.setItem(`checklist-${itemId}`, isChecked);
+    }
+
+    // 진행률 업데이트
+    function updateProgress() {
+        const totalItems = checkboxes.length;
+        const checkedItems = Array.from(checkboxes).filter(cb => cb.checked).length;
+        const percentage = Math.round((checkedItems / totalItems) * 100);
+
+        // 진행률 바 업데이트
+        progressFill.style.width = percentage + '%';
+        progressPercentage.textContent = percentage;
+        progressCount.textContent = `${checkedItems}/${totalItems}`;
+
+        // 결과 메시지 표시
+        showResult(percentage);
+    }
+
+    // 결과 메시지 표시
+    function showResult(percentage) {
+        // 모든 결과 숨기기
+        resultExcellent.style.display = 'none';
+        resultGood.style.display = 'none';
+        resultImprovement.style.display = 'none';
+
+        if (percentage === 100) {
+            // 모든 항목 완료
+            checklistResult.style.display = 'block';
+            resultExcellent.style.display = 'block';
+        } else if (percentage >= 70) {
+            // 70% 이상 완료
+            checklistResult.style.display = 'block';
+            resultGood.style.display = 'block';
+        } else if (percentage > 0) {
+            // 일부 완료
+            checklistResult.style.display = 'block';
+            resultImprovement.style.display = 'block';
+        } else {
+            // 아무것도 체크 안 함
+            checklistResult.style.display = 'none';
+        }
+    }
+
+    // 체크박스 이벤트 리스너 추가
+    checkboxes.forEach(checkbox => {
+        checkbox.addEventListener('change', function() {
+            const itemId = this.getAttribute('data-item');
+            const isChecked = this.checked;
+            
+            // 로컬 스토리지에 저장
+            saveChecklistState(itemId, isChecked);
+            
+            // 진행률 업데이트
+            updateProgress();
+            
+            // 체크 시 애니메이션 효과
+            if (isChecked) {
+                this.parentElement.style.transform = 'scale(1.05)';
+                setTimeout(() => {
+                    this.parentElement.style.transform = 'scale(1)';
+                }, 200);
+            }
+        });
+    });
+
+    // 체크리스트 리셋 함수 (개발자 도구에서 사용 가능)
+    window.resetChecklist = function() {
+        checkboxes.forEach(checkbox => {
+            checkbox.checked = false;
+            const itemId = checkbox.getAttribute('data-item');
+            localStorage.removeItem(`checklist-${itemId}`);
+        });
+        updateProgress();
+        console.log('체크리스트가 초기화되었습니다.');
+    };
+
+    // 페이지 로드 시 상태 복원
+    loadChecklistState();
+
+    // 체크리스트 섹션으로 스크롤 함수
+    window.scrollToChecklist = function() {
+        document.getElementById('security-rules').scrollIntoView({ 
+            behavior: 'smooth' 
+        });
+    };
+}); 

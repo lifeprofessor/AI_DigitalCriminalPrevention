@@ -6252,3 +6252,878 @@ main {
     height: 100%;
     border: none;
 }
+
+/* 기존 CSS 끝에 추가 */
+
+/* 보안 수칙 섹션 - lesson2 스타일 적용 */
+.security-rules-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+    gap: 2rem;
+    margin: 2rem 0;
+}
+
+.security-rule-card {
+    background: linear-gradient(135deg, #ffffff 0%, #f8f9ff 100%);
+    border-radius: 16px;
+    padding: 2rem;
+    box-shadow: 0 8px 32px rgba(59, 130, 246, 0.1);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    border: 1px solid rgba(59, 130, 246, 0.1);
+    position: relative;
+    overflow: hidden;
+}
+
+.security-rule-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+}
+
+.security-rule-card:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 20px 60px rgba(59, 130, 246, 0.2);
+    border-color: var(--primary-color);
+}
+
+.rule-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 70px;
+    height: 70px;
+    background: linear-gradient(135deg, var(--primary-color), #6366f1);
+    border-radius: 20px;
+    margin-bottom: 1.5rem;
+    color: white;
+    font-size: 1.8rem;
+    position: relative;
+    box-shadow: 0 8px 24px rgba(59, 130, 246, 0.3);
+}
+
+.rule-icon::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 20px;
+    background: linear-gradient(135deg, rgba(255,255,255,0.3), transparent);
+}
+
+.security-rule-card h3 {
+    color: #1e293b;
+    margin-bottom: 1.5rem;
+    font-size: 1.25rem;
+    font-weight: 700;
+    line-height: 1.3;
+    letter-spacing: -0.025em;
+}
+
+.rule-description {
+    position: relative;
+}
+
+.rule-summary {
+    background: linear-gradient(135deg, #f8fafc, #f1f5f9);
+    padding: 1.25rem;
+    border-radius: 12px;
+    border-left: 4px solid var(--primary-color);
+    margin-bottom: 1.5rem !important;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+.rule-description p {
+    margin-bottom: 1rem;
+    line-height: 1.7;
+    color: #475569;
+    font-size: 0.95rem;
+}
+
+.rule-description strong {
+    color: var(--primary-color);
+    font-weight: 700;
+    font-size: 1rem;
+}
+
+.rule-description ul {
+    margin: 1rem 0;
+    padding: 0;
+    list-style: none;
+}
+
+.rule-description li {
+    margin-bottom: 0.75rem;
+    color: #64748b;
+    line-height: 1.6;
+    font-size: 0.9rem;
+    position: relative;
+    padding-left: 1.5rem;
+}
+
+.rule-description li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: #10b981;
+    font-weight: bold;
+    font-size: 0.9rem;
+}
+
+/* lesson2.html 스타일 요소들 추가 */
+.rule-header {
+    display: flex;
+    align-items: flex-start;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.rule-meta {
+    flex: 1;
+}
+
+.rule-meta h3 {
+    margin-bottom: 1rem;
+    color: #1e293b;
+    font-size: 1.25rem;
+    font-weight: 700;
+    line-height: 1.3;
+}
+
+.rule-badges {
+    display: flex;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+}
+
+/* 배지 시스템 */
+.difficulty-badge, .effectiveness-badge, .risk-badge, .damage-badge, .trend-badge {
+    padding: 0.4rem 0.8rem;
+    border-radius: 12px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.difficulty-badge.easy { background: linear-gradient(135deg, #10b981, #059669); color: white; }
+.difficulty-badge.medium { background: linear-gradient(135deg, #f59e0b, #d97706); color: white; }
+.difficulty-badge.hard { background: linear-gradient(135deg, #ef4444, #dc2626); color: white; }
+.difficulty-badge.extreme { background: linear-gradient(135deg, #7c2d12, #451a03); color: white; }
+.difficulty-badge.critical { background: linear-gradient(135deg, #991b1b, #7f1d1d); color: white; }
+
+.effectiveness-badge.high { background: linear-gradient(135deg, #059669, #047857); color: white; }
+.effectiveness-badge.critical { background: linear-gradient(135deg, #dc2626, #991b1b); color: white; }
+
+.risk-badge.critical { background: linear-gradient(135deg, #dc2626, #991b1b); color: white; }
+.damage-badge.high { background: linear-gradient(135deg, #ea580c, #c2410c); color: white; }
+.damage-badge.extreme { background: linear-gradient(135deg, #7c2d12, #451a03); color: white; }
+
+.trend-badge.rising { background: linear-gradient(135deg, #dc2626, #991b1b); color: white; }
+.trend-badge.critical { background: linear-gradient(135deg, #7c2d12, #451a03); color: white; }
+
+/* 통계 바 */
+.rule-stats {
+    margin: 1.5rem 0;
+    padding: 1.25rem;
+    background: linear-gradient(135deg, #f8fafc, #f1f5f9);
+    border-radius: 12px;
+    border: 1px solid rgba(148, 163, 184, 0.2);
+}
+
+.stat-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.stat-item:last-child {
+    margin-bottom: 0;
+}
+
+.stat-label {
+    min-width: 100px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #475569;
+}
+
+.stat-bar {
+    flex: 1;
+    height: 8px;
+    background: #e2e8f0;
+    border-radius: 6px;
+    overflow: hidden;
+    position: relative;
+}
+
+.stat-fill {
+    height: 100%;
+    border-radius: 6px;
+    transition: width 0.8s ease;
+    position: relative;
+}
+
+.stat-fill.easy { background: linear-gradient(90deg, #10b981, #059669); }
+.stat-fill.medium { background: linear-gradient(90deg, #f59e0b, #d97706); }
+.stat-fill.high { background: linear-gradient(90deg, #3b82f6, #2563eb); }
+.stat-fill.critical { background: linear-gradient(90deg, #dc2626, #991b1b); }
+.stat-fill.danger { background: linear-gradient(90deg, #ef4444, #dc2626); }
+.stat-fill.extreme { background: linear-gradient(90deg, #7c2d12, #451a03); }
+.stat-fill.safe { background: linear-gradient(90deg, #059669, #047857); }
+.stat-fill.warning { background: linear-gradient(90deg, #f59e0b, #d97706); }
+
+.stat-value {
+    min-width: 60px;
+    text-align: right;
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: #1e293b;
+}
+
+/* 실천 방법 가이드 */
+.implementation-guide {
+    margin: 1.5rem 0;
+}
+
+.implementation-guide h5 {
+    color: #374151;
+    font-size: 1rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.method-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.method-tag {
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    border: 1px solid;
+    transition: all 0.3s ease;
+    cursor: default;
+}
+
+.method-tag.primary {
+    background: linear-gradient(135deg, #dbeafe, #bfdbfe);
+    border-color: #3b82f6;
+    color: #1e40af;
+}
+
+.method-tag.secondary {
+    background: linear-gradient(135deg, #f3f4f6, #e5e7eb);
+    border-color: #6b7280;
+    color: #374151;
+}
+
+.method-tag.safe {
+    background: linear-gradient(135deg, #dcfce7, #bbf7d0);
+    border-color: #16a34a;
+    color: #15803d;
+}
+
+.method-tag.warning {
+    background: linear-gradient(135deg, #fef3c7, #fde68a);
+    border-color: #d97706;
+    color: #92400e;
+}
+
+.method-tag.danger {
+    background: linear-gradient(135deg, #fee2e2, #fecaca);
+    border-color: #dc2626;
+    color: #991b1b;
+}
+
+.method-tag.critical {
+    background: linear-gradient(135deg, #7f1d1d, #451a03);
+    border-color: #7f1d1d;
+    color: white;
+}
+
+/* 보안 팁 */
+.security-tip {
+    margin-top: 1.5rem;
+    padding: 1rem 1.25rem;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-size: 0.9rem;
+    font-weight: 600;
+    border-left: 4px solid;
+}
+
+.security-tip.safe {
+    background: linear-gradient(135deg, #ecfdf5, #d1fae5);
+    border-left-color: #059669;
+    color: #065f46;
+}
+
+.security-tip.warning {
+    background: linear-gradient(135deg, #fffbeb, #fef3c7);
+    border-left-color: #d97706;
+    color: #92400e;
+}
+
+.security-tip.danger {
+    background: linear-gradient(135deg, #fef2f2, #fee2e2);
+    border-left-color: #dc2626;
+    color: #991b1b;
+}
+
+.security-tip.critical {
+    background: linear-gradient(135deg, #7f1d1d, #451a03);
+    border-left-color: #7f1d1d;
+    color: white;
+}
+
+.security-tip.extreme {
+    background: linear-gradient(135deg, #1e1b4b, #312e81);
+    border-left-color: #3730a3;
+    color: #e0e7ff;
+}
+
+/* 카드 타입별 색상 */
+.critical-rule {
+    border-top: 4px solid #dc2626;
+}
+
+.critical-rule .rule-icon {
+    background: linear-gradient(135deg, #dc2626, #991b1b);
+}
+
+.high-rule {
+    border-top: 4px solid #3b82f6;
+}
+
+.high-rule .rule-icon {
+    background: linear-gradient(135deg, #3b82f6, #2563eb);
+}
+
+.medium-rule {
+    border-top: 4px solid #f59e0b;
+}
+
+.medium-rule .rule-icon {
+    background: linear-gradient(135deg, #f59e0b, #d97706);
+}
+
+.danger-rule {
+    border-top: 4px solid #ef4444;
+}
+
+.danger-rule .rule-icon {
+    background: linear-gradient(135deg, #ef4444, #dc2626);
+}
+
+.warning-rule {
+    border-top: 4px solid #f59e0b;
+}
+
+.warning-rule .rule-icon {
+    background: linear-gradient(135deg, #f59e0b, #d97706);
+}
+
+.extreme-rule {
+    border-top: 4px solid #7c2d12;
+}
+
+.extreme-rule .rule-icon {
+    background: linear-gradient(135deg, #7c2d12, #451a03);
+}
+
+/* 체크리스트 섹션 - 고급 디자인 */
+.checklist-section {
+    margin-top: 4rem;
+    padding: 3rem 2.5rem;
+    background: linear-gradient(135deg, #f1f5f9 0%, #e2e8f0 50%, #f8fafc 100%);
+    border-radius: 24px;
+    box-shadow: 0 20px 60px rgba(15, 23, 42, 0.08);
+    border: 1px solid rgba(148, 163, 184, 0.2);
+    position: relative;
+    overflow: hidden;
+}
+
+.checklist-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 6px;
+    background: linear-gradient(90deg, #3b82f6, #8b5cf6, #06b6d4);
+}
+
+.checklist-section h3 {
+    color: #0f172a;
+    margin-bottom: 1rem;
+    font-size: 2rem;
+    text-align: center;
+    font-weight: 800;
+    letter-spacing: -0.025em;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.checklist-subtitle {
+    text-align: center;
+    color: #64748b;
+    margin-bottom: 3rem;
+    line-height: 1.7;
+    font-size: 1.1rem;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* 진행률 바 - 고급 디자인 */
+.progress-container {
+    margin-bottom: 3rem;
+    padding: 2rem;
+    background: white;
+    border-radius: 16px;
+    box-shadow: 0 8px 32px rgba(59, 130, 246, 0.08);
+    border: 1px solid rgba(59, 130, 246, 0.1);
+}
+
+.progress-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+    font-weight: 700;
+    color: #1e293b;
+    font-size: 1.1rem;
+}
+
+.progress-bar {
+    width: 100%;
+    height: 16px;
+    background: linear-gradient(90deg, #f1f5f9, #e2e8f0);
+    border-radius: 12px;
+    overflow: hidden;
+    position: relative;
+    box-shadow: inset 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #3b82f6, #8b5cf6, #06b6d4);
+    border-radius: 12px;
+    width: 0%;
+    transition: width 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    box-shadow: 0 4px 12px rgba(59, 130, 246, 0.4);
+}
+
+.progress-fill::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+    animation: shimmer 3s infinite;
+}
+
+.progress-fill::after {
+    content: '';
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    right: 2px;
+    height: 6px;
+    background: linear-gradient(90deg, rgba(255,255,255,0.8), rgba(255,255,255,0.3));
+    border-radius: 8px;
+}
+
+@keyframes shimmer {
+    0% { transform: translateX(-200%); }
+    100% { transform: translateX(200%); }
+}
+
+/* 체크리스트 아이템들 - 3열 프리미엄 디자인 */
+.checklist-items {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    margin-bottom: 3rem;
+}
+
+.checklist-item {
+    padding: 1.75rem 2rem;
+    background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+    border-radius: 16px;
+    border: 1px solid rgba(148, 163, 184, 0.2);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 4px 16px rgba(15, 23, 42, 0.04);
+    position: relative;
+    overflow: hidden;
+}
+
+.checklist-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 4px;
+    height: 100%;
+    background: linear-gradient(180deg, #3b82f6, #8b5cf6);
+    transform: scaleY(0);
+    transition: transform 0.3s ease;
+}
+
+.checklist-item:hover {
+    background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+    border-color: #3b82f6;
+    box-shadow: 0 12px 32px rgba(59, 130, 246, 0.15);
+    transform: translateY(-2px);
+}
+
+.checklist-item:hover::before {
+    transform: scaleY(1);
+}
+
+/* 고급 체크박스 디자인 */
+.checkbox-container {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    font-size: 1.05rem;
+    line-height: 1.6;
+    color: #334155;
+    font-weight: 600;
+    position: relative;
+}
+
+.checkbox-container input {
+    display: none;
+}
+
+.checkmark {
+    width: 28px;
+    height: 28px;
+    background: linear-gradient(135deg, #ffffff, #f8fafc);
+    border: 2px solid #cbd5e1;
+    border-radius: 8px;
+    margin-right: 1.5rem;
+    position: relative;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    flex-shrink: 0;
+    box-shadow: 0 2px 8px rgba(15, 23, 42, 0.06);
+}
+
+.checkbox-container:hover .checkmark {
+    border-color: #3b82f6;
+    box-shadow: 0 4px 16px rgba(59, 130, 246, 0.2);
+    transform: scale(1.05);
+}
+
+.checkbox-container input:checked ~ .checkmark {
+    background: linear-gradient(135deg, #3b82f6, #6366f1);
+    border-color: #3b82f6;
+    box-shadow: 0 6px 20px rgba(59, 130, 246, 0.4);
+}
+
+.checkmark::after {
+    content: '';
+    position: absolute;
+    left: 9px;
+    top: 5px;
+    width: 6px;
+    height: 12px;
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    transform: rotate(45deg) scale(0);
+    transition: transform 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.checkbox-container input:checked ~ .checkmark::after {
+    transform: rotate(45deg) scale(1);
+}
+
+.checkbox-container input:checked ~ .checkmark::before {
+    content: '';
+    position: absolute;
+    inset: -2px;
+    border-radius: 10px;
+    background: linear-gradient(135deg, rgba(59, 130, 246, 0.2), rgba(99, 102, 241, 0.2));
+    z-index: -1;
+    animation: checkmark-glow 0.6s ease-out;
+}
+
+@keyframes checkmark-glow {
+    0% { transform: scale(0); opacity: 0; }
+    50% { transform: scale(1.2); opacity: 1; }
+    100% { transform: scale(1); opacity: 0.3; }
+}
+
+/* 체크리스트 결과 - 프리미엄 디자인 */
+.checklist-result {
+    text-align: center;
+    padding: 3rem 2.5rem;
+    border-radius: 20px;
+    margin-top: 3rem;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 16px 48px rgba(0, 0, 0, 0.12);
+}
+
+.checklist-result::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, #10b981, #059669, #047857);
+}
+
+.result-excellent {
+    background: linear-gradient(135deg, #ecfdf5 0%, #d1fae5 50%, #a7f3d0 100%);
+    border: 2px solid rgba(16, 185, 129, 0.3);
+    color: #065f46;
+    padding: 2.5rem 2rem;
+}
+
+.result-excellent::before {
+    background: linear-gradient(90deg, #10b981, #059669, #047857);
+}
+
+.result-good {
+    background: linear-gradient(135deg, #dbeafe 0%, #bfdbfe 50%, #93c5fd 100%);
+    border: 2px solid rgba(59, 130, 246, 0.3);
+    color: #1e3a8a;
+    padding: 2.5rem 2rem;
+}
+
+.result-good::before {
+    background: linear-gradient(90deg, #3b82f6, #2563eb, #1d4ed8);
+}
+
+.result-improvement {
+    background: linear-gradient(135deg, #fef3c7 0%, #fde68a 50%, #fcd34d 100%);
+    border: 2px solid rgba(245, 158, 11, 0.3);
+    color: #92400e;
+    padding: 2.5rem 2rem;
+}
+
+.result-improvement::before {
+    background: linear-gradient(90deg, #f59e0b, #d97706, #b45309);
+}
+
+.checklist-result i {
+    font-size: 3.5rem;
+    margin-bottom: 1.5rem;
+    filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.2));
+    animation: result-icon-bounce 0.8s ease-out;
+}
+
+.checklist-result h4 {
+    margin-bottom: 1.5rem;
+    font-size: 1.75rem;
+    font-weight: 800;
+    letter-spacing: -0.025em;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.checklist-result p {
+    margin: 0;
+    line-height: 1.8;
+    font-size: 1.1rem;
+    font-weight: 500;
+    max-width: 550px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+@keyframes result-icon-bounce {
+    0% { transform: scale(0) rotate(-180deg); }
+    50% { transform: scale(1.2) rotate(-10deg); }
+    100% { transform: scale(1) rotate(0deg); }
+}
+
+/* 반응형 디자인 - 고급 스타일 */
+@media (max-width: 768px) {
+    .security-rules-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    
+    .security-rule-card {
+        padding: 1.5rem;
+        margin: 0 0.5rem;
+    }
+    
+    .rule-icon {
+        width: 60px;
+        height: 60px;
+        font-size: 1.5rem;
+    }
+    
+    .security-rule-card h3 {
+        font-size: 1.1rem;
+    }
+    
+    .checklist-section {
+        padding: 2rem 1.5rem;
+        margin-top: 3rem;
+        margin-left: 0.5rem;
+        margin-right: 0.5rem;
+    }
+    
+    .checklist-section h3 {
+        font-size: 1.5rem;
+    }
+    
+    .progress-container {
+        padding: 1.5rem;
+    }
+    
+    .progress-info {
+        flex-direction: column;
+        gap: 0.75rem;
+        text-align: center;
+        font-size: 1rem;
+    }
+    
+    .checklist-items {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+    }
+    
+    .checklist-item {
+        padding: 1.25rem 1.5rem;
+    }
+    
+    .checkbox-container {
+        font-size: 0.95rem;
+    }
+    
+    .checkmark {
+        width: 24px;
+        height: 24px;
+        margin-right: 1rem;
+    }
+    
+    .checkmark::after {
+        left: 7px;
+        top: 3px;
+        width: 5px;
+        height: 10px;
+        border-width: 0 2px 2px 0;
+    }
+    
+    .checklist-result {
+        padding: 2rem 1.5rem;
+        margin-left: 0.5rem;
+        margin-right: 0.5rem;
+    }
+    
+    .checklist-result i {
+        font-size: 2.5rem;
+    }
+    
+    .checklist-result h4 {
+        font-size: 1.4rem;
+    }
+    
+    .checklist-result p {
+        font-size: 1rem;
+    }
+    
+    .result-excellent, .result-good, .result-improvement {
+        padding: 2rem 1.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .security-rule-card {
+        padding: 1.25rem;
+    }
+    
+    .rule-icon {
+        width: 50px;
+        height: 50px;
+        font-size: 1.3rem;
+    }
+    
+    .security-rule-card h3 {
+        font-size: 1rem;
+    }
+    
+    .checklist-section {
+        padding: 1.5rem 1rem;
+    }
+    
+    .checklist-section h3 {
+        font-size: 1.3rem;
+    }
+    
+    .progress-container {
+        padding: 1.25rem;
+    }
+    
+    .checklist-items {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+    
+    .checklist-item {
+        padding: 1rem 1.25rem;
+    }
+    
+    .checkbox-container {
+        font-size: 0.9rem;
+    }
+    
+    /* lesson2 스타일 반응형 */
+    .rule-header {
+        flex-direction: column;
+        gap: 1rem;
+    }
+    
+    .rule-badges {
+        gap: 0.5rem;
+    }
+    
+    .difficulty-badge, .effectiveness-badge, .risk-badge, .damage-badge, .trend-badge {
+        font-size: 0.7rem;
+        padding: 0.3rem 0.6rem;
+    }
+    
+    .stat-label {
+        min-width: 80px;
+        font-size: 0.8rem;
+    }
+    
+    .method-tags {
+        gap: 0.4rem;
+    }
+    
+    .method-tag {
+        font-size: 0.75rem;
+        padding: 0.4rem 0.8rem;
+    }
+    
+    .security-tip {
+        padding: 0.8rem 1rem;
+        font-size: 0.85rem;
+    }
+    
+    .result-excellent, .result-good, .result-improvement {
+        padding: 1.5rem 1rem;
+    }
+}
