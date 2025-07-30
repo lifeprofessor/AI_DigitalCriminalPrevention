@@ -10,6 +10,41 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
+    <script>
+    // 로그인 체크 함수
+    function checkLoginStatus() {
+        const isLoggedIn = sessionStorage.getItem('userLoggedIn');
+        const loginTime = sessionStorage.getItem('loginTime');
+        
+        // 로그인되지 않은 경우
+        if (isLoggedIn !== 'true') {
+            // 현재 페이지를 redirect 파라미터로 저장하고 로그인 페이지로 이동
+            const currentPage = window.location.pathname.split('/').pop();
+            window.location.href = `index.html?redirect=${currentPage}`;
+            return;
+        }
+        
+        // 세션 만료 체크 (24시간)
+        if (loginTime) {
+            const now = new Date().getTime();
+            const sessionDuration = 24 * 60 * 60 * 1000; // 24시간 (밀리초)
+            
+            if (now - parseInt(loginTime) > sessionDuration) {
+                // 세션 만료 시 로그아웃
+                sessionStorage.removeItem('userLoggedIn');
+                sessionStorage.removeItem('loginTime');
+                alert('세션이 만료되었습니다. 다시 로그인해주세요.');
+                const currentPage = window.location.pathname.split('/').pop();
+                window.location.href = `index.html?redirect=${currentPage}`;
+                return;
+            }
+        }
+    }
+
+    // 페이지 로드 시 로그인 상태 체크
+    checkLoginStatus();
+    </script>
+    
     <!-- 헤더 -->
     <header class="header">
         <div class="container">
